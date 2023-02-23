@@ -1,0 +1,25 @@
+.CreateNewUserPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-create-new-user {
+  margin: 20px 0;
+  width: 200px;
+}
+
+.newUser {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-image-user, .name-user, .employee-code-user, .level-user, .department-user, .password-user, .input-comment-user {
+  margin-top: 8px;
+  border: 1px solid lightgray;
+  padding: 3px 5px;
+}
+
+.add-user {
+  margin-top: 20px;
+}

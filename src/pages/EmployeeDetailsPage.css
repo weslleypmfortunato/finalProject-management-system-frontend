@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.EmployeeDetailsPage {
+  display: grid;
+  gap: 20px;
+}
+
+.edit-employee-btn {
+  margin: 20px 0;
+}
+
+.employee-img {
+  display: flex;
+  gap: 32px;
+  margin-left: 96px;
+}
+
+.info {
+  text-align: left;
+}
+
+.info > p {
+  margin-bottom: 4px;
+}
+
+.employee-info {
+  font-weight: bold;
+}
+
+.employee {
+  color: black;
+}
+
+.link-employee-details {
+  text-decoration: none;
+}

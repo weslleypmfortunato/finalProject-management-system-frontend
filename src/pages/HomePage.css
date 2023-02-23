@@ -1,0 +1,23 @@
+.HomePage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome {
+  font-weight: 300;
+}
+
+.welcome span {
+  font-weight: 400;
+}
+
+.cards {
+  display: flex;
+  gap: 32px;
+}
+
+.collaborators-img, .timesheet-img, .wh-img {
+  height: 210px;
+}
+

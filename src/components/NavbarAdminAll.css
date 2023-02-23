@@ -1,0 +1,20 @@
+.NavbarAdminAll {
+  border: 1px solid lightgray;
+  width: 100vw;
+}
+
+.admin-all-link a{
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.links ul {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.admin-all-logout {
+  margin-right: 32px;
+}

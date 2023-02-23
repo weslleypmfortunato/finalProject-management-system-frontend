@@ -1,0 +1,28 @@
+.welcome-employee-list {
+  margin: 20px 0;
+}
+
+.createNewEmployee-formerEmployeeList-btns {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 20px;
+}
+
+.employee {
+  text-align: left;
+  margin-left: 50px;
+}
+
+.employee p {
+  margin-bottom: 1px;
+}
+
+.employee p:hover {
+  background-color: lightgray;
+  max-width: 1000px;
+}
+
+.employee-detail {
+  font-weight: 700;
+}

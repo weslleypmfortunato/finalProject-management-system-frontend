@@ -1,0 +1,22 @@
+.NavbarAdminHomePage {
+  border: 1px solid lightgray;
+  width: 100vw;
+}
+
+.logout-admin-home-page a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.logout-link ul {
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+
+

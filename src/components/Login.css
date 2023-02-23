@@ -1,0 +1,14 @@
+.login-input {
+  margin: 20px 0 6px 0;
+}
+
+.eye-password {
+  margin-left: 100px;
+}
+
+.login-input-password, .login-input {
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-left: 24px;
+  padding: 3px;
+}
