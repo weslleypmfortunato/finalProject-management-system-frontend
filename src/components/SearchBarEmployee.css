@@ -1,0 +1,43 @@
+.SearchBarEmployee {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#mysearchbarstyle {
+  width: 270px;
+  height: 35px;
+}
+
+.input {
+  position: relative;
+  margin: 5px;
+}
+
+.search-list {
+  position: absolute;
+  z-index: 2;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.search-result {
+  background-color: rgb(200, 196, 196);
+  border-radius: 4px;
+  text-align: left;
+  padding-left: 15px;
+  font-size: 0.74rem;
+  height: 30px;
+  width: 270px;
+  padding-top: 6px;
+  margin: 1px 0;
+}
+
+.search-result a {
+ text-decoration: none;
+}
+
+.search-result:hover {
+  background-color: rgba(200, 196, 196, 0.516);
+  font-weight: bold;
+}
+

@@ -3,6 +3,7 @@ import NavbarAdminAll from "../components/NavbarAdminAll"
 import axios from 'axios'
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import SearchBarEmployee from '../components/SearchBarEmployee'
 
 
 const EmployeesListPage = () => {
@@ -27,6 +28,7 @@ const EmployeesListPage = () => {
   return (
     <div className="EmployeesListPage">
       <NavbarAdminAll />
+      <SearchBarEmployee />
       <h1 className='welcome-employee-list'>Current Employees List</h1>
       <div className="employees-list">
         <div className="createNewEmployee-formerEmployeeList-btns">

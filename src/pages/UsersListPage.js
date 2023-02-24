@@ -3,6 +3,7 @@ import NavbarAdminAll from "../components/NavbarAdminAll";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import SearchBarUser from '../components/SearchBarUser';
 
 const UsersListPage = () => {
   const [users, setUsers] = useState([])
@@ -24,6 +25,7 @@ const UsersListPage = () => {
   return (
     <div className="UsersListPage">
       <NavbarAdminAll />
+      <SearchBarUser />
       <h1 className="welcome-user-list">Current Users List</h1>
       <div className="users-list">
         <div className="createNewUser-btn">

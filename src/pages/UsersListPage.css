@@ -23,7 +23,7 @@
 
 .user p:hover {
   background-color: lightgray;
-  max-width: 1000px;
+  width: 1000px;
 }
 
 .user-detail {

@@ -142,17 +142,17 @@ const EmployeeEditPage = () => {
               />
             </div>
             <div className="level-startingDate">
-              <input
-                type="text"
-                className="form level"
+            <select
+                className='form level edit-employee'
                 style={{width: "350px"}}
-                required
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
                 value={level}
                 onChange={e => setLevel(e.target.value)}
-                placeholder="Level (admin, supervisor, user)"
-              />
+              >
+                <option value="user">Choose an user level</option>
+                <option value="admin">Administrator</option>
+                <option value="supervisor">Supervisor</option>
+                <option value="user">User</option>
+              </select>
               <input
                 type="text"
                 className="form startingDate"
@@ -165,16 +165,19 @@ const EmployeeEditPage = () => {
               />
             </div>
             <div className="department-position">
-              <input
-                type="text"
-                className="form department"
+              <select
+                className='form department level'
                 style={{width: "350px"}}
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
                 value={department}
                 onChange={e => setDepartment(e.target.value)}
-                placeholder="Department"
-              />
+              >
+                <option value="generic">Choose a department</option>
+                <option value="production">Production</option>
+                <option value="molding">Molding</option>
+                <option value="packing">Packing</option>
+                <option value="floorwrap">Floorwrap</option>
+                <option value="warehouse">Warehouse</option>
+              </select>
               <input
                 type="text"
                 className="form position"

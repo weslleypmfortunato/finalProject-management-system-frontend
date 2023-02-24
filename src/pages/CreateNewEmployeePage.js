@@ -118,7 +118,7 @@ const CreateNewEmployeePage = () => {
                 aria-describedby="inputGroup-sizing-default"
                 value={dob}
                 onChange={e => setDob(e.target.value)}
-                placeholder="Date of birthday"
+                placeholder="Birthday YYYY-MM-DD"
               />
               <input
                 type="text"
@@ -131,16 +131,16 @@ const CreateNewEmployeePage = () => {
               />
             </div>
             <div className="level-startingDate">
-              <input
-                type="text"
-                className="form level"
-                required
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
+              <select
+                className='form level'
                 value={level}
                 onChange={e => setLevel(e.target.value)}
-                placeholder="Level (admin, supervisor, user)"
-              />
+              >
+                <option value="user">Choose an user level</option>
+                <option value="admin">Administrator</option>
+                <option value="supervisor">Supervisor</option>
+                <option value="user">User</option>
+              </select>
               <input
                 type="text"
                 className="form startingDate"
@@ -148,19 +148,22 @@ const CreateNewEmployeePage = () => {
                 aria-describedby="inputGroup-sizing-default"
                 value={startingDate}
                 onChange={e => setStartingDate(e.target.value)}
-                placeholder="Starting Date"
+                placeholder="Starting Date YYYY-MM-DD"
               />
             </div>
             <div className="department-position">
-              <input
-                type="text"
-                className="form department"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
+              <select
+                className='form department level'
                 value={department}
                 onChange={e => setDepartment(e.target.value)}
-                placeholder="Department"
-              />
+              >
+                <option value="generic">Choose a department</option>
+                <option value="production">Production</option>
+                <option value="molding">Molding</option>
+                <option value="packing">Packing</option>
+                <option value="floorwrap">Floorwrap</option>
+                <option value="warehouse">Warehouse</option>
+              </select>
               <input
                 type="text"
                 className="form position"

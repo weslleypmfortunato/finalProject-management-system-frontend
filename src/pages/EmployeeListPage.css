@@ -12,6 +12,7 @@
 .employee {
   text-align: left;
   margin-left: 50px;
+  max-width: 1000px;
 }
 
 .employee p {
@@ -20,9 +21,13 @@
 
 .employee p:hover {
   background-color: lightgray;
-  max-width: 1000px;
+  width: 1000px;
 }
 
 .employee-detail {
   font-weight: 700;
+}
+
+.link-employee-details {
+  width: 1000px;
 }

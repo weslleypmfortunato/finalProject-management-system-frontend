@@ -26,7 +26,11 @@ const CreateNewUserPage = () => {
     e.preventDefault()
 
     const newUser = {
-      name, employeeCode, level, department, password, comments, imageUrl 
+      name, employeeCode, level, department, password, comments 
+    }
+
+    if (imageUrl) {
+      newUser.imageUrl = imageUrl
     }
 
     setUsers([...users, newUser])
@@ -93,27 +97,30 @@ const CreateNewUserPage = () => {
               onChange={e => setEmployeeCode(e.target.value)}
               placeholder="Employee Code"
             />
-            <input
-              type="text"
-              className="form level-user"
-              style={{borderRadius: "5px"}}
-              required
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              value={level}
-              onChange={e => setLevel(e.target.value)}
-              placeholder="Access level (admin, supervisor, user)"
-            />
-            <input
-              type="text"
-              className="form department-user"
-              style={{borderRadius: "5px"}}
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              value={department}
-              onChange={e => setDepartment(e.target.value)}
-              placeholder="Department"
-            />
+              <select
+                className='form level-user'
+                style={{borderRadius: "5px", height: "32px"}}
+                value={level}
+                onChange={e => setLevel(e.target.value)}
+              >
+                <option value="user">Choose an user level</option>
+                <option value="admin">Administrator</option>
+                <option value="supervisor">Supervisor</option>
+                <option value="user">User</option>
+              </select>
+              <select
+                className='form department-user'
+                style={{borderRadius: "5px", height: "32px"}}
+                value={department}
+                onChange={e => setDepartment(e.target.value)}
+              >
+                <option value="generic">Choose a department</option>
+                <option value="production">Production</option>
+                <option value="molding">Molding</option>
+                <option value="packing">Packing</option>
+                <option value="floorwrap">Floorwrap</option>
+                <option value="warehouse">Warehouse</option>
+              </select>
             <input
               type="text"
               className="form password-user"
