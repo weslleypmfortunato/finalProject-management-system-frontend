@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+.user-profileImg {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
 .welcome {
   font-weight: 300;
 }

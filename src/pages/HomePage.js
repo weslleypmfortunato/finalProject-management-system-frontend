@@ -13,13 +13,16 @@ const HomePage = () => {
   return (
     <div className="HomePage">
       <NavbarAdminHomePage />
-      <h1 className='welcome'>Welcome <span>{ loggedInUser.user.name.split(' ')[0] }</span>!</h1>
+      <div className="user-profileImg">
+        <h1 className='welcome'>Welcome <span>{ loggedInUser.user.name.split(' ')[0] }</span>!</h1>
+        <img src={ loggedInUser.user.imageUrl } alt="User" style={{width: "100px", height: "100px", borderRadius: "50%"}}/>
+      </div>
       <div className="cards">
-        <Link to='/sign-up/user'>
+        <Link to='/users'>
           <div className="card collaborators" style={{width: '18rem'}}>
             <img src={ newUser } className="card-img-top collaborators-img" alt="Collaborators" />
             <div className="card-body">
-              <p className="card-text">Create new users to access differents environments aloowing them to do different activities</p>
+              <p className="card-text">Check users list, create new users to access differents environments and edit current users</p>
             </div>
           </div>
         </Link>

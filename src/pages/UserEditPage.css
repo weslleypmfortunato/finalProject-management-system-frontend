@@ -1,0 +1,45 @@
+.UserEditPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-upd-user {
+  margin: 20px 0;
+  width: 200px;
+}
+
+.editedUser {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-user-image, .edit-name, .edit-employee-code, .edit-level, .edit-department, .edit-password, .edit-input-comment {
+  border: 1px solid lightgray;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+.update-user {
+  margin-top: 20px;
+}
+
+.input-checkbox {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.editedImageUrl {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-image {
+  width: 150px;
+}
+
+.formerEmployee {
+  font-weight: 500;
+}

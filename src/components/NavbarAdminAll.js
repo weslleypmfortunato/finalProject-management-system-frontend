@@ -4,7 +4,7 @@ import { AuthContext } from '../contexts/auth.context';
 import { useContext, useState } from 'react';
 
 const NavbarAdminAll = props => {
-  const [employee, setEmployee] = useState('')
+  const [employee] = useState('')
 
   const { logout } = useContext(AuthContext)
 
@@ -20,7 +20,12 @@ const NavbarAdminAll = props => {
           <li 
             className='admin-all-link' 
             style={{listStyleType: "none"}}>
-            <Link to='/employees'>Collaborator's List</Link>
+            <Link to='/users'>Users List</Link>
+          </li>
+          <li 
+            className='admin-all-link' 
+            style={{listStyleType: "none"}}>
+            <Link to='/employees'>Employees List</Link>
           </li>
           <li 
             className='admin-all-link' 

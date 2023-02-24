@@ -17,9 +17,9 @@ const CreateNewEmployeePage = () => {
   const [position, setPosition] = useState('')
   const [password, setPassword] = useState('')
   const [emergencyContact, setEmergencyContact] = useState('')
-  const [currentStatus, setCurrentStatus] = useState(true)
+  const [currentStatus, setCurrentStatus] = useState(false)
   const [comments, setComments] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
+  const [imageUrl, setImageUrl] = useState(null)
   const [refresh, setRefresh] = useState(true)
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
@@ -32,7 +32,11 @@ const CreateNewEmployeePage = () => {
     e.preventDefault()
 
     const newEmployee = {
-      name, employeeCode, dob, phoneNumber, level, startingDate, department, position, password, emergencyContact, currentStatus, comments, imageUrl 
+      name, employeeCode, dob, phoneNumber, level, startingDate, department, position, password, emergencyContact, currentStatus, comments 
+    }
+
+    if (imageUrl) {
+      newEmployee.imageUrl = imageUrl
     }
 
     setUsers([...users, newEmployee])

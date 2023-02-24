@@ -80,8 +80,8 @@ const EmployeeEditPage = () => {
                   type="checkbox"
                   name=""
                   id=""
-                  value={currentStatus}
-                  onChange={e => setCurrentStatus(e.target.value)}
+                  checked={currentStatus}
+                  onClick={e => setCurrentStatus(!currentStatus)}
                 />
                 <span className='formerEmployee'>Former employee</span>
               </div>
@@ -195,7 +195,7 @@ const EmployeeEditPage = () => {
                 disabled
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
-                placeholder="Password CANNOT be updated"
+                placeholder="** Password CANNOT be updated"
               />
               <input
                 type="text"
@@ -224,7 +224,7 @@ const EmployeeEditPage = () => {
             type="submit"
             className="btn btn-primary add-user"
             style={{width: "75px"}}
-          >Add</button>
+          >Save</button>
         </form>
       </div>
     </div>

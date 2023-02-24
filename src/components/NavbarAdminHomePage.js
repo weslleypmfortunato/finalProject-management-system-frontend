@@ -1,10 +1,14 @@
 import './NavbarAdminHomePage.css'
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AuthContext } from '../contexts/auth.context';
 
 
-const NavbarAdminHomePage = () => {
+const NavbarAdminHomePage = props => {
   const [loggedInUser, setLoggedInUser] = useState({})
+  const [employee] = useState('')
+
+  const {logout} = useContext(AuthContext)
 
   const navigate = useNavigate()
 
@@ -22,7 +26,7 @@ const NavbarAdminHomePage = () => {
           <li 
             className='logout-admin-home-page' 
             style={{listStyleType: "none"}}
-            onClick={() => logOut(loggedInUser.jwt)}>
+            onClick={() => logout(employee.jwt)}>
             <Link to={'/'} >Logout</Link>
           </li>
         </ul>

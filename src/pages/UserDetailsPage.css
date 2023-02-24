@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.UserDetailsPage {
+  display: grid;
+  gap: 20px;
+}
+
+.edit-user-btn {
+  margin: 20px 0;
+}
+
+.user-img {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-left: 96px;
+}
+
+.info-user {
+  text-align: left;
+}
+
+.info-user > p {
+  margin-bottom: 4px;
+}
+
+.user-info {
+  font-weight: bold;
+}

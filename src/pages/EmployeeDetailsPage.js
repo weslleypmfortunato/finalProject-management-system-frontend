@@ -30,7 +30,7 @@ const EmployeeDetailsPage = props => {
     <div className="EmployeeDetailsPage">
       <NavbarAdminAll />
       <div className="h1-btn">
-        <h1 style={{margin: "20px, 0"}}>{ employee.name.split(' ')[0] } Details</h1>
+        <h1 style={{margin: "20px, 0"}}>{ employee.name.split(' ')[0] }'s Details</h1>
         <Link to={`/employee/edit/${employee._id}`}>
           <button
             type="button"
@@ -56,9 +56,6 @@ const EmployeeDetailsPage = props => {
       
     </div>
   )
-
-
-
 }
 
 export default EmployeeDetailsPage
