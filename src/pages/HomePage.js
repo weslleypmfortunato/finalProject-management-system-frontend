@@ -20,7 +20,7 @@ const HomePage = () => {
       <div className="cards">
         <Link to='/users'>
           <div className="card collaborators" style={{width: '18rem'}}>
-            <img src={ newUser } className="card-img-top collaborators-img" alt="Collaborators" />
+            <img src={ newUser } className="card-img-top collaborators-img" alt="Collaborators" style={{width: "12rem", margin: "auto"}}/>
             <div className="card-body">
               <p className="card-text">Check users list, create new users to access differents environments and edit current users</p>
             </div>

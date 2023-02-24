@@ -12,7 +12,6 @@ import UserDetailsPage from './pages/UserDetailsPage';
 import UserEditPage from './pages/UserEditPage';
 import FormerEmployeesListPage from './pages/FormerEmployeesList';
 
-
 function App() {
   return (
     <div className="App">

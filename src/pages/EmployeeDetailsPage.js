@@ -31,13 +31,13 @@ const EmployeeDetailsPage = props => {
       <NavbarAdminAll />
       <div className="h1-btn">
         <h1 style={{margin: "20px, 0"}}>{ employee.name.split(' ')[0] }'s Details</h1>
-        <Link to={`/employee/edit/${employee._id}`}>
           <button
-            type="button"
             className="btn btn-primary edit-employee-btn"
-            style={{width: "170px"}}>Update Information
+            id={employee.currentStatus === true ? "no-btn" : "enable-btn"}
+            type="button"
+            style={{width: "170px"}}
+          ><Link to={`/employee/edit/${employee._id}`}>Update Information</Link>
           </button>
-        </Link>
       </div>
       <div className="employee-img">
         <img src={ employee.imageUrl } style={{height: "150px"}} alt="Employee" />

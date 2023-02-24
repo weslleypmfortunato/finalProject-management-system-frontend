@@ -2,7 +2,6 @@ import './EmployeeListPage.css'
 import NavbarAdminAll from "../components/NavbarAdminAll"
 import axios from 'axios'
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import SearchBarFormerEmployee from '../components/SearchBarFormerEmployee'
 
 
@@ -29,19 +28,25 @@ const FormerEmployeesListPage = () => {
       <NavbarAdminAll />
       <SearchBarFormerEmployee />
       <h1 className='welcome-employee-list'>Former Employees List</h1>
-      <div className="employees-list">
+      <div className="employee-cards">
         {formerEmployees.length > 0 && formerEmployees.map(formerEmployee => {
           return (
-            <Link to={`/employee/${formerEmployee._id}`} className="link-employee-details">
-              <div key={formerEmployee._id} className="employee">
-                <p><span className="employee-detail">Name:</span> {formerEmployee.name} - <span className="employee-detail">Employee Number: </span> {formerEmployee.employeeCode} - <span className="employee-detail">Position:</span> {formerEmployee.position} - <span className="employee-detail">Department:</span> {formerEmployee.department}</p>
+            <div className="single-employee-card" style={{display: "flex", flexDirection: "row"}}>
+              <div className="card employee-card" style={{width: "14rem"}}>
+                <img src={formerEmployee.imageUrl} className="card-img-top" alt="Employee Profile" />
+                <div className="card-body">
+                  <h5 className="card-title employee-name">{formerEmployee.name}</h5>
+                  <p className="card-text employee-details"><span>Employee Code:</span> {formerEmployee.employeeCode}</p>
+                  <p className="card-text employee-details"><span className="employee-detail">Position:</span> {formerEmployee.position}</p>
+                  <p className="card-text employee-details"><span className="employee-detail">Department:</span> {formerEmployee.department}</p>
+                  <a href={`/employee/${formerEmployee._id}`} className="btn btn-primary employee-details-btn">Details</a>
               </div>
-            </Link>
+            </div>
+      </div>
           )
         })}
-      </div>
     </div>
-    
+  </div>  
   )
 }
 

@@ -24,7 +24,6 @@ const EmployeesListPage = () => {
       }).catch(error => console.log(error))
   }, [refresh])
 
-
   return (
     <div className="EmployeesListPage">
       <NavbarAdminAll />
@@ -47,15 +46,24 @@ const EmployeesListPage = () => {
             </button>
           </Link>
         </div>
-        {employees.length > 0 && employees.map(employee => {
-          return (
-            <Link to={`/employee/${employee._id}`} className="link-employee-details" key={employee._id}>
-              <div className="employee">
-                <p><span className="employee-detail">Name:</span> {employee.name} - <span className="employee-detail">Employee Number: </span> {employee.employeeCode} - <span className="employee-detail">Position:</span> {employee.position} - <span className="employee-detail">Department:</span> {employee.department}</p>
+        <div className="employee-cards">
+          {employees.length > 0 && employees.map(employee => {
+            return (
+              <div className="single-employee-card" style={{display: "flex", flexDirection: "row"}}>
+                <div className="card employee-card" style={{width: "14rem"}}>
+                  <img src={employee.imageUrl} className="card-img-top" alt="Employee Profile" />
+                  <div className="card-body">
+                    <h5 className="card-title employee-name">{employee.name}</h5>
+                    <p className="card-text employee-details"><span>Employee Code:</span> {employee.employeeCode}</p>
+                    <p className="card-text employee-details"><span className="employee-detail">Position:</span> {employee.position}</p>
+                    <p className="card-text employee-details"><span className="employee-detail">Department:</span> {employee.department}</p>
+                    <a href={`/employee/${employee._id}`} className="btn btn-primary employee-details-btn">Details</a>
+                  </div>
+                </div>
               </div>
-            </Link>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
     </div>
     

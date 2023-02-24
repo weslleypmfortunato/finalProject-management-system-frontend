@@ -1,15 +1,8 @@
-.welcome-employee-list {
+.welcome-former-employee-list {
   margin: 20px 0;
 }
 
-.createNewEmployee-formerEmployeeList-btns {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-bottom: 20px;
-}
-
-.employee-cards {
+.employees-cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
