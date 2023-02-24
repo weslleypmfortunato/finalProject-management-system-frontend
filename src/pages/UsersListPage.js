@@ -39,8 +39,8 @@ const UsersListPage = () => {
         </div>
         {users.length > 0 && users.map(user => {
           return (
-            <Link to={`/user/${user._id}`} className="link-user-details">
-              <div key={user._id} className="user">
+            <Link to={`/user/${user._id}`} className="link-user-details" key={user._id} >
+              <div className="user">
                 <p><span className='user-detail'>Name:</span> {user.name} - 
                 <span className='user-detail'>Employee Code:</span> {user.employeeCode} - <span className='user-detail'>User level:</span> {user.level} - <span className='user-detail'>Department:</span> {user.department}</p>
               </div>

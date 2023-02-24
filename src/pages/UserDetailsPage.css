@@ -30,3 +30,7 @@
 .user-info {
   font-weight: bold;
 }
+
+.delete-user-btn {
+  margin: 150px auto;
+}

@@ -1,11 +1,14 @@
 import './UserDetailsPage.css'
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import NavbarAdminAll from '../components/NavbarAdminAll';
 
 const UserDetailsPage = props => {
   const [user, setUser] = useState(null)
+  const [refresh, setRefresh] = useState(true)
+
+  const navigate = useNavigate()
 
   const { userId } = useParams()
 
@@ -13,6 +16,12 @@ const UserDetailsPage = props => {
 
   const headers = {
     Authorization: `Bearer ${loggedInUser.jwt}`
+  }
+
+  const deleteUser = (id) => {
+    axios.delete(`${process.env.REACT_APP_API_URL}/user/${userId}`, { headers })
+      .then(setRefresh(!refresh), navigate('/users'))
+      .catch(error => console.log(error))
   }
 
   useEffect(() => {
@@ -49,7 +58,13 @@ const UserDetailsPage = props => {
           <p><span className="user-info">Comments: </span>{ user.comments }</p>
         </div>
       </div>
-      
+      <button
+        type= "button"
+        className="btn btn-danger delete-user-btn"
+        style={{width: "120px"}}
+        onClick={() => deleteUser(user._id)}
+        >Delete User
+      </button>
     </div>
   )
 }
