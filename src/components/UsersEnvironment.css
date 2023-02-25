@@ -1,0 +1,9 @@
+.users-img, .timesheet-img, .wh-img {
+  height: 210px;
+}
+
+.card-description {
+  text-decoration: none;
+  color: black;
+}
+

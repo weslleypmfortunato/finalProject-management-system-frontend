@@ -51,7 +51,7 @@ const EmployeesListPage = () => {
             return (
               <div className="single-employee-card" style={{display: "flex", flexDirection: "row"}}>
                 <div className="card employee-card" style={{width: "14rem"}}>
-                  <img src={employee.imageUrl} className="card-img-top" alt="Employee Profile" />
+                  <img src={employee.imageUrl} className="card-img-top" alt="Employee Profile" style={{borderRadius: "50%"}} />
                   <div className="card-body">
                     <h5 className="card-title employee-name">{employee.name}</h5>
                     <p className="card-text employee-details"><span>Employee Code:</span> {employee.employeeCode}</p>
@@ -65,8 +65,10 @@ const EmployeesListPage = () => {
           })}
         </div>
       </div>
+      <Link to={'/homepage'} style={{margin: "20px"}}>
+        <p>Home</p>
+      </Link>
     </div>
-    
   )
 }
 

@@ -1,7 +1,7 @@
 import './UserEditPage.css'
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import rogersLogo from '../assets/images/logo-rogers.png'
 import NavbarAdminAll from "../components/NavbarAdminAll";
 
@@ -143,6 +143,9 @@ const UserEditPage = () => {
           >Save</button>
         </form>
       </div>
+      <Link to={`/user/${userId}`} style={{margin: "20px"}}>
+        <p>Back</p>
+      </Link>
     </div>
   )
 }

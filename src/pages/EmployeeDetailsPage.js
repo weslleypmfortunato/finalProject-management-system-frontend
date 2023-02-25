@@ -33,7 +33,7 @@ const EmployeeDetailsPage = props => {
         <h1 style={{margin: "20px, 0"}}>{ employee.name.split(' ')[0] }'s Details</h1>
           <button
             className="btn btn-primary edit-employee-btn"
-            id={employee.currentStatus === true ? "no-btn" : "enable-btn"}
+            id={employee.currentStatus === true || employee.level !== "admin" ? "no-btn" : "enable-btn"}
             type="button"
             style={{width: "170px"}}
           ><Link to={`/employee/edit/${employee._id}`}>Update Information</Link>
@@ -53,7 +53,9 @@ const EmployeeDetailsPage = props => {
           <p><span className="employee-info">Comments: </span>{ employee.comments }</p>
         </div>
       </div>
-      
+      <Link to={'/employees'}>
+        <p>Back</p>
+      </Link>
     </div>
   )
 }

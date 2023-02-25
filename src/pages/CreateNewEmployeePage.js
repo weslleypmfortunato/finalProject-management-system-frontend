@@ -1,5 +1,6 @@
 import './CreateNewEmployeePage.css'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import rogersLogo from '../assets/images/logo-rogers.png'
 import NavbarAdminAll from '../components/NavbarAdminAll'
@@ -215,6 +216,9 @@ const CreateNewEmployeePage = () => {
           >Add</button>
         </form>
       </div>
+      <Link to={'/employees'}>
+        <p>Back</p>
+      </Link>
     </div>
   )
 }

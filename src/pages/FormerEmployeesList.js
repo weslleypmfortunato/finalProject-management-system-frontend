@@ -2,6 +2,7 @@ import './EmployeeListPage.css'
 import NavbarAdminAll from "../components/NavbarAdminAll"
 import axios from 'axios'
 import { useEffect, useState } from "react"
+import { Link } from 'react-router-dom'
 import SearchBarFormerEmployee from '../components/SearchBarFormerEmployee'
 
 
@@ -46,6 +47,9 @@ const FormerEmployeesListPage = () => {
           )
         })}
     </div>
+    <Link to={'/employees'} style={{margin: "20px"}}>
+      <p>Back</p>
+    </Link>
   </div>  
   )
 }

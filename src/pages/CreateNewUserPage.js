@@ -1,6 +1,7 @@
 import './CreateNewUserPage.css'
 import axios from 'axios'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import rogersLogo from '../assets/images/logo-rogers.png'
 import NavbarAdminAll from '../components/NavbarAdminAll'
 import Swal from 'sweetalert2'
@@ -149,6 +150,9 @@ const CreateNewUserPage = () => {
           >Add</button>
         </form>
       </div>
+      <Link to={'/Users'} style={{margin: "20px"}}>
+        <p>Back</p>
+      </Link>
     </div>
   )
 }

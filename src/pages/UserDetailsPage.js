@@ -65,6 +65,9 @@ const UserDetailsPage = props => {
         onClick={() => deleteUser(user._id)}
         >Delete User
       </button>
+      <Link to={'/users'} style={{margin: "20px"}}>
+        <p>Back</p>
+      </Link>
     </div>
   )
 }
