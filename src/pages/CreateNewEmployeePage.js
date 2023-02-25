@@ -62,7 +62,7 @@ const CreateNewEmployeePage = () => {
           Swal.fire({
             text: 'Employee created successfully',
             imageUrl: "https://knowledgepoint.com/wp-content/uploads/2018/05/iStock-845888110.jpg",
-            imageWidth: 300,
+            imageWidth: 200,
             imageHeight: 200,
             imageAlt: 'Custom image',
           })
@@ -136,8 +136,9 @@ const CreateNewEmployeePage = () => {
                 className='form level'
                 value={level}
                 onChange={e => setLevel(e.target.value)}
+                required
               >
-                <option value="user">Choose an user level</option>
+                <option value="">Choose an user level</option>
                 <option value="admin">Administrator</option>
                 <option value="supervisor">Supervisor</option>
                 <option value="user">User</option>
@@ -157,8 +158,10 @@ const CreateNewEmployeePage = () => {
                 className='form department level'
                 value={department}
                 onChange={e => setDepartment(e.target.value)}
+                required
               >
-                <option value="generic">Choose a department</option>
+                <option value="">Choose a department</option>
+                <option value="generic">Generic</option>
                 <option value="production">Production</option>
                 <option value="molding">Molding</option>
                 <option value="packing">Packing</option>

@@ -8,6 +8,8 @@ const NavbarAdminAll = props => {
 
   const { logout } = useContext(AuthContext)
 
+  const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
+
   return (
     <nav className='NavbarAdminAll'>
       <div className="links">
@@ -15,7 +17,7 @@ const NavbarAdminAll = props => {
           <li 
             className='admin-all-link' 
             style={{listStyleType: "none"}}>
-            <Link to='/homepage'>Home</Link>
+            <Link to='/home'>Home</Link>
           </li>
           <li 
             className='admin-all-link' 

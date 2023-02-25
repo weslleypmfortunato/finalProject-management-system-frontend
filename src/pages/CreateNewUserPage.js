@@ -50,7 +50,7 @@ const CreateNewUserPage = () => {
           Swal.fire({
             text: 'User created successfully',
             imageUrl: "https://knowledgepoint.com/wp-content/uploads/2018/05/iStock-845888110.jpg",
-            imageWidth: 300,
+            imageWidth: 200,
             imageHeight: 200,
             imageAlt: 'Custom image',
           })

@@ -18,6 +18,7 @@ const HomePage = () => {
       </div>
       <div className="cards">
         <UsersEnvironment />
+        
         <CollaboratorsEnvironment />
         <TimesheetEnvironment />
         <WarehouseMissingItemsEnvironment />

@@ -1,17 +1,18 @@
 import './Login.css'
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { AuthContext } from '../contexts/auth.context';
 
 const Login = () => {
   const [ employeeCode, setEmployeeCode ] = useState('')
   const [ password, setPassword ] = useState('')
-  const [showPassword, setShowPassword] = useState(false)
+  const [ showPassword, setShowPassword ] = useState(false)
 
   const navigate = useNavigate()
+  const { setLoggedInUser } = useContext(AuthContext)
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -28,9 +29,10 @@ const Login = () => {
     axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, userLogin)
       .then(response => {
         localStorage.setItem("loggedInUser", JSON.stringify(response.data))
+        setLoggedInUser(response.data)
         setEmployeeCode('')
         setPassword('')
-        navigate('/homepage')
+        navigate('/home')
       }).catch(error => console.log(error))
   }
 

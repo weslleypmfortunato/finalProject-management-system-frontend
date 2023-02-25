@@ -10,6 +10,7 @@ const EmployeeDetailsPage = props => {
   const { employeeId } = useParams()
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
+  console.log("AQUI ==> ", loggedInUser)
 
   const headers = {
     Authorization: `Bearer ${loggedInUser.jwt}`
@@ -33,7 +34,7 @@ const EmployeeDetailsPage = props => {
         <h1 style={{margin: "20px, 0"}}>{ employee.name.split(' ')[0] }'s Details</h1>
           <button
             className="btn btn-primary edit-employee-btn"
-            id={employee.currentStatus === true || employee.level !== "admin" ? "no-btn" : "enable-btn"}
+            id={employee.currentStatus === true || loggedInUser.user.level !== "admin" ? "no-btn" : "enable-btn"}
             type="button"
             style={{width: "170px"}}
           ><Link to={`/employee/edit/${employee._id}`}>Update Information</Link>
@@ -45,7 +46,6 @@ const EmployeeDetailsPage = props => {
           <p><span className="employee-info">Name:</span> { employee.name }</p>
           <p><span className="employee-info">Employee Code: </span>{ employee.employeeCode }</p>
           <p><span className="employee-info">Date of birthday: </span>{ employee.dob }</p>
-          <p><span className="employee-info">Level: </span>{ employee.level }</p>
           <p><span className="employee-info">Started at: </span>{ employee.startingDate }</p>
           <p><span className="employee-info">Department: </span>{ employee.department }</p>
           <p><span className="employee-info">Current position: </span>{ employee.position }</p>

@@ -34,7 +34,8 @@ const EmployeesListPage = () => {
           <Link to='/sign-up/employee'>
             <button
               type="button"
-              className="btn btn-primary createNewUser-btn">
+              className="btn btn-primary createNewUser-btn"
+              id={loggedInUser.user.level !== "admin" ? "no-btn" : "enable-btn" }>
               Create a New Employee
             </button>
           </Link>

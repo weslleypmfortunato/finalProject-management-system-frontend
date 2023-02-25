@@ -1,16 +1,16 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext()
 
 const AuthProvider = (props) => {
   const [loggedInUser, setLoggedInUser] = useState({name: '', user:{}})
-  // const [loading, setLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   const navigate = useNavigate()
 
-  // const storedInUser = localStorage.getItem('loggedInUser')
-  // const parsedInUser = JSON.parse(storedInUser) || {}
+  const storedInUser = localStorage.getItem('loggedInUser')
+  const parsedUser = JSON.parse(storedInUser) || {}
 
   const logout = () => {
     localStorage.removeItem('loggedInUser')
@@ -18,8 +18,17 @@ const AuthProvider = (props) => {
     navigate('/')
   }
 
+  useEffect(() => {
+    
+    if (parsedUser.user) {
+      setLoggedInUser({ ...parsedUser })
+    }  
+    setIsLoading(false)
+  }, [])
+
+
   return (
-    <AuthContext.Provider value={{logout}}>
+    <AuthContext.Provider value={{logout, loggedInUser, setLoggedInUser, isLoading}}>
       {props.children}
     </AuthContext.Provider>
   )
