@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import rogersLogo from '../assets/images/logo-rogers.png'
 import NavbarAdminAll from "../components/NavbarAdminAll";
+import Swal from 'sweetalert2'
 
 const UserEditPage = () => {
   const [name, setName] = useState('')
@@ -49,6 +50,22 @@ const UserEditPage = () => {
       }).catch(error => console.log(error))
   }
 
+  const handleUpload = e => {
+    const uploadData = new FormData()
+    uploadData.append('rogers_images', e.target.files[0])
+    axios.post(`${process.env.REACT_APP_API_URL}/employee/file-upload`, uploadData, { headers }) // se der falha remove o headers que não tinha na aula
+      .then(response => {
+        setImageUrl(response.data.url)
+        Swal.fire({
+            text: 'Image uploaded succesfully',
+            imageUrl: "https://media.istockphoto.com/id/1175303918/vector/like-icon-vector-design.jpg?s=612x612&w=0&k=20&c=3dFZEggnAyodAcj9sSnnUvSZ69LQbE9kZof7vgGvAgs=",
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
+      }).catch(error => console.log(error))
+    }
+
   if (loading) {
     return <h3>Loading...</h3>
   }
@@ -63,14 +80,12 @@ const UserEditPage = () => {
         <form onSubmit={handleSubmit}>
           <div className="input-group editedUser">
             <input
-              type="input"
-              className="form input-user-image"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
-              value={imageUrl}
-              onChange={e => setImageUrl(e.target.value)}
-              placeholder="Upload Image"
+              type="file"
+              className='image-input'
+              style={{borderRadius: "5px"}}
+              onChange={e => handleUpload(e)}
             />
+            <p className='no-img'>If no image is selected the system will upload the previous saved image</p>
             <input
               type="text"
               className="form edit-name"
@@ -110,7 +125,8 @@ const UserEditPage = () => {
               value={department}
               onChange={e => setDepartment(e.target.value)}
             >
-              <option value="generic">Choose a department</option>
+              <option value="">Choose a department</option>
+              <option value="generic">Generic</option>
               <option value="production">Production</option>
               <option value="molding">Molding</option>
               <option value="packing">Packing</option>

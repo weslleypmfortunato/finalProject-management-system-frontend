@@ -13,12 +13,11 @@ const HomePage = () => {
     <div className="HomePage">
       <NavbarAdminHomePage />
       <div className="user-profileImg">
+        <img src={ loggedInUser.user.imageUrl } alt="User" style={{width: "60px", height: "60px", borderRadius: "50%"}}/>
         <h1 className='welcome'>Welcome <span>{ loggedInUser.user.name.split(' ')[0] }</span>!</h1>
-        <img src={ loggedInUser.user.imageUrl } alt="User" style={{width: "100px", height: "100px", borderRadius: "50%"}}/>
       </div>
       <div className="cards">
-        <UsersEnvironment />
-        
+        <UsersEnvironment /> 
         <CollaboratorsEnvironment />
         <TimesheetEnvironment />
         <WarehouseMissingItemsEnvironment />

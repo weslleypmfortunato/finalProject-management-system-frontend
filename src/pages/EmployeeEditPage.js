@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import rogersLogo from '../assets/images/logo-rogers.png'
 import NavbarAdminAll from "../components/NavbarAdminAll";
+import Swal from 'sweetalert2'
 
 const EmployeeEditPage = () => {
   const [name, setName] = useState('')
@@ -65,6 +66,22 @@ const EmployeeEditPage = () => {
     return <h3>Loading...</h3>
   }
 
+  const handleUpload = e => {
+    const uploadData = new FormData()
+    uploadData.append('rogers_images', e.target.files[0])
+    axios.post(`${process.env.REACT_APP_API_URL}/employee/file-upload`, uploadData, { headers }) // se der falha remove o headers que não tinha na aula
+      .then(response => {
+        setImageUrl(response.data.url)
+        Swal.fire({
+            text: 'Image uploaded succesfully',
+            imageUrl: "https://media.istockphoto.com/id/1175303918/vector/like-icon-vector-design.jpg?s=612x612&w=0&k=20&c=3dFZEggnAyodAcj9sSnnUvSZ69LQbE9kZof7vgGvAgs=",
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
+      }).catch(error => console.log(error))
+    }
+
   return (
     <div className="EmployeeEditPage">
       <NavbarAdminAll />
@@ -78,22 +95,18 @@ const EmployeeEditPage = () => {
               <div className="input-checkbox">
                 <input
                   type="checkbox"
-                  name=""
-                  id=""
                   checked={currentStatus}
                   onClick={e => setCurrentStatus(!currentStatus)}
                 />
                 <span className='formerEmployee'>Former employee</span>
               </div>
               <input
-                type="input"
-                className="form input-image"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
-                value={imageUrl}
-                onChange={e => setImageUrl(e.target.value)}
-                placeholder="Upload Image"
+                type="file"
+                className='image-input'
+                style={{borderRadius: "5px"}}
+                onChange={e => handleUpload(e)}
               />
+              <p className='no-img'>If no image is selected the system will upload the previous saved image</p>
             </div>
             <div className="name-employeeCode">
               <input
@@ -148,9 +161,6 @@ const EmployeeEditPage = () => {
                 value={level}
                 onChange={e => setLevel(e.target.value)}
               >
-                <option value="user">Choose an user level</option>
-                <option value="admin">Administrator</option>
-                <option value="supervisor">Supervisor</option>
                 <option value="user">User</option>
               </select>
               <input
@@ -175,7 +185,7 @@ const EmployeeEditPage = () => {
                 <option value="production">Production</option>
                 <option value="molding">Molding</option>
                 <option value="packing">Packing</option>
-                <option value="floorwrap">Floorwrap</option>
+                <option value="flowwrap">Flowwrap</option>
                 <option value="warehouse">Warehouse</option>
               </select>
               <input

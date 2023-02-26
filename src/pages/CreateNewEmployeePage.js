@@ -6,7 +6,7 @@ import rogersLogo from '../assets/images/logo-rogers.png'
 import NavbarAdminAll from '../components/NavbarAdminAll'
 import Swal from 'sweetalert2'
 
-const CreateNewEmployeePage = () => {
+const CreateNewEmployeePage = props => {
   const [users, setUsers] = useState([])
   const [name, setName] = useState('')
   const [employeeCode, setEmployeeCode] = useState('')
@@ -70,24 +70,38 @@ const CreateNewEmployeePage = () => {
       }).catch(error => console.log(error))
   }
 
+  const handleUpload = e => {
+    const uploadData = new FormData()
+    uploadData.append('rogers_images', e.target.files[0])
+    axios.post(`${process.env.REACT_APP_API_URL}/employee/file-upload`, uploadData, { headers }) 
+      .then(response => {
+        setImageUrl(response.data.url)
+        Swal.fire({
+            text: 'Image uploaded succesfully',
+            imageUrl: "https://media.istockphoto.com/id/1175303918/vector/like-icon-vector-design.jpg?s=612x612&w=0&k=20&c=3dFZEggnAyodAcj9sSnnUvSZ69LQbE9kZof7vgGvAgs=",
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
+      }).catch(error => console.log(error))
+  }
+
   return (
     <div className="CreateNewUserPage">
       <NavbarAdminAll />
       <img src={rogersLogo} alt="Roger's Logo" className='logo-create-new-user'/>
       <h1>Create New Employee</h1>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={e => handleSubmit(e)}>
           <div className="input-group newUser">
             <div className="imageUrl">
               <input
-                type="input"
-                className="form input-image"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
-                value={imageUrl}
-                onChange={e => setImageUrl(e.target.value)}
-                placeholder="Upload Image"
+                type="file"
+                className='image-input'
+                style={{borderRadius: "5px"}}
+                onChange={e => handleUpload(e)}
               />
+              <p id={!imageUrl ? "show-message" : "hide-message"}>If no image is selected the system will upload a default image</p>
             </div>
             <div className="name-employeeCode">
               <input
@@ -136,11 +150,7 @@ const CreateNewEmployeePage = () => {
                 className='form level'
                 value={level}
                 onChange={e => setLevel(e.target.value)}
-                required
               >
-                <option value="">Choose an user level</option>
-                <option value="admin">Administrator</option>
-                <option value="supervisor">Supervisor</option>
                 <option value="user">User</option>
               </select>
               <input
@@ -165,7 +175,7 @@ const CreateNewEmployeePage = () => {
                 <option value="production">Production</option>
                 <option value="molding">Molding</option>
                 <option value="packing">Packing</option>
-                <option value="floorwrap">Floorwrap</option>
+                <option value="flowwrap">Flowwrap</option>
                 <option value="warehouse">Warehouse</option>
               </select>
               <input

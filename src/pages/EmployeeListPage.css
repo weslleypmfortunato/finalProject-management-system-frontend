@@ -30,3 +30,12 @@
 .employee-name {
   font-size: 1.25rem;
 }
+
+.no-img {
+  font-weight: 600;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.527);
+  padding: 0 5px;
+  border-radius: 5px;
+  margin: 10px 0 5px 0;
+}

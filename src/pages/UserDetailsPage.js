@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import NavbarAdminAll from '../components/NavbarAdminAll';
+import Swal from 'sweetalert2'
 
 const UserDetailsPage = props => {
   const [user, setUser] = useState(null)
@@ -20,8 +21,17 @@ const UserDetailsPage = props => {
 
   const deleteUser = (id) => {
     axios.delete(`${process.env.REACT_APP_API_URL}/user/${userId}`, { headers })
-      .then(setRefresh(!refresh), navigate('/users'))
-      .catch(error => console.log(error))
+      .then(respponse => {
+        setRefresh(!refresh)
+        Swal.fire({
+          text: 'User deleted successfully',
+          imageUrl: "https://knowledgepoint.com/wp-content/uploads/2018/05/iStock-845888110.jpg",
+          imageWidth: 200,
+          imageHeight: 200,
+          imageAlt: 'Custom image',
+        })
+        navigate('/users')
+      }).catch(error => console.log(error))
   }
 
   useEffect(() => {
@@ -49,7 +59,7 @@ const UserDetailsPage = props => {
         </Link>
       </div>
       <div className="user-img">
-        <img src={ user.imageUrl } style={{height: "150px"}} alt="User" />
+        <img src={ user.imageUrl } style={{height: "150px", borderRadius: "5px"}} alt="User" />
         <div className="info-user">
           <p><span className="user-info">Name:</span> { user.name }</p>
           <p><span className="user-info">Employee Code: </span>{ user.employeeCode }</p>

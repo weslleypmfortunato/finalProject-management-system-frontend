@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import SearchBarEmployee from '../components/SearchBarEmployee'
 
 
-const EmployeesListPage = () => {
+const EmployeesListPage = props => {
   const [employees, setEmployees] = useState([])
   const [refresh] = useState(true)
 
@@ -52,7 +52,7 @@ const EmployeesListPage = () => {
             return (
               <div className="single-employee-card" style={{display: "flex", flexDirection: "row"}}>
                 <div className="card employee-card" style={{width: "14rem"}}>
-                  <img src={employee.imageUrl} className="card-img-top" alt="Employee Profile" style={{borderRadius: "50%"}} />
+                  <img src={employee.imageUrl} className="card-img-top" alt="Employee Profile" style={{width: "150px", height: "150px", margin: "auto", marginTop: "16px", borderTopLeftRadius: "25%", borderBottomRightRadius: "25%"}} />
                   <div className="card-body">
                     <h5 className="card-title employee-name">{employee.name}</h5>
                     <p className="card-text employee-details"><span>Employee Code:</span> {employee.employeeCode}</p>

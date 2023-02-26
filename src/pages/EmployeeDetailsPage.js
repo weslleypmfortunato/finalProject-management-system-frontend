@@ -41,7 +41,7 @@ const EmployeeDetailsPage = props => {
           </button>
       </div>
       <div className="employee-img">
-        <img src={ employee.imageUrl } style={{height: "150px"}} alt="Employee" />
+        <img src={ employee.imageUrl } style={{height: "150px", borderRadius: "5px"}} alt="Employee" />
         <div className="info">
           <p><span className="employee-info">Name:</span> { employee.name }</p>
           <p><span className="employee-info">Employee Code: </span>{ employee.employeeCode }</p>
