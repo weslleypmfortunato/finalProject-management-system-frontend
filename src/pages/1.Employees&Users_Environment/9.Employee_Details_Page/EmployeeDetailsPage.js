@@ -10,7 +10,6 @@ const EmployeeDetailsPage = props => {
   const { employeeId } = useParams()
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
-  console.log("AQUI ==> ", loggedInUser)
 
   const headers = {
     Authorization: `Bearer ${loggedInUser.jwt}`
