@@ -1,9 +1,9 @@
-import './EmployeeListPage.css'
-import NavbarAdminAll from "../components/NavbarAdminAll"
+import '../7.Employees_List_Page/EmployeeListPage.css'
+import NavbarAdminAll from "../../../components/NavbarAdminAll"
 import axios from 'axios'
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
-import SearchBarFormerEmployee from '../components/SearchBarFormerEmployee'
+import SearchBarFormerEmployee from '../../../components/SearchBarFormerEmployee'
 
 
 const FormerEmployeesListPage = () => {

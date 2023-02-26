@@ -1,11 +1,12 @@
-import './EmployeeEditPage.css'
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import NavbarAdminAll from "../components/NavbarAdminAll";
+import './CreateNewEmployeePage.css'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import NavbarAdminAll from '../../../components/NavbarAdminAll'
 import Swal from 'sweetalert2'
 
-const EmployeeEditPage = () => {
+const CreateNewEmployeePage = props => {
+  const [users, setUsers] = useState([])
   const [name, setName] = useState('')
   const [employeeCode, setEmployeeCode] = useState('')
   const [dob, setDob] = useState('')
@@ -14,15 +15,12 @@ const EmployeeEditPage = () => {
   const [startingDate, setStartingDate] = useState('')
   const [department, setDepartment] = useState('')
   const [position, setPosition] = useState('')
+  const [password, setPassword] = useState('')
   const [emergencyContact, setEmergencyContact] = useState('')
-  const [currentStatus, setCurrentStatus] = useState(true)
+  const [currentStatus, setCurrentStatus] = useState(false)
   const [comments, setComments] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
-  const [loading, setLoading] = useState(true)
-
-  const navigate = useNavigate()
-
-  const { employeeId } = useParams()
+  const [imageUrl, setImageUrl] = useState(null)
+  const [refresh, setRefresh] = useState(true)
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
 
@@ -30,45 +28,51 @@ const EmployeeEditPage = () => {
     Authorization: `Bearer ${loggedInUser.jwt}`
   }
 
-  useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/employee/${employeeId}`, { headers })
-      .then(response => {
-        const {
-          name, employeeCode, dob, phoneNumber, level, startingDate, department, position, emergencyContact, currentStatus, comments, imageUrl } = response.data
-        setName(name)
-        setEmployeeCode(employeeCode)
-        setDob(dob)
-        setPhoneNumber(phoneNumber)
-        setLevel(level)
-        setStartingDate(startingDate)
-        setDepartment(department)
-        setPosition(position)
-        setEmergencyContact(emergencyContact)
-        setCurrentStatus(currentStatus)
-        setComments(comments)
-        setImageUrl(imageUrl)  
-        setLoading(false)
-      }).catch(error => console.log(error))
-  }, [employeeId])
-
   const handleSubmit = e => {
     e.preventDefault()
-    const editedEmployee = { name, employeeCode, dob, phoneNumber, level, startingDate, department, position, emergencyContact, currentStatus, comments, imageUrl }
 
-    axios.put(`${process.env.REACT_APP_API_URL}/employee/edit/${employeeId}`, editedEmployee)
+    const newEmployee = {
+      name, employeeCode, dob, phoneNumber, level, startingDate, department, position, password, emergencyContact, currentStatus, comments 
+    }
+
+    if (imageUrl) {
+      newEmployee.imageUrl = imageUrl
+    }
+
+    setUsers([...users, newEmployee])
+    setName('')
+    setEmployeeCode('')
+    setDob('')
+    setPhoneNumber('')
+    setLevel('')
+    setStartingDate('')
+    setDepartment('')
+    setPosition('')
+    setPassword('')
+    setEmergencyContact('')
+    setCurrentStatus('')
+    setComments('')
+    setImageUrl('')
+
+    axios.post(`${process.env.REACT_APP_API_URL}/sign-up/employee`, newEmployee, { headers })
       .then(response => {
-        navigate(`/employee/${employeeId}`)
+        if (response.status === 201) {
+          setRefresh(!refresh)
+          Swal.fire({
+            text: 'Employee created successfully',
+            imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677397055/rogers_images/vamtaidwul4evlgjhn6p.jpg",
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
+        }
       }).catch(error => console.log(error))
-  }
-
-  if (loading) {
-    return <h3>Loading...</h3>
   }
 
   const handleUpload = e => {
     const uploadData = new FormData()
     uploadData.append('rogers_images', e.target.files[0])
-    axios.post(`${process.env.REACT_APP_API_URL}/employee/file-upload`, uploadData, { headers }) // se der falha remove o headers que não tinha na aula
+    axios.post(`${process.env.REACT_APP_API_URL}/employee/file-upload`, uploadData, { headers }) 
       .then(response => {
         setImageUrl(response.data.url)
         Swal.fire({
@@ -79,39 +83,33 @@ const EmployeeEditPage = () => {
             imageAlt: 'Custom image',
           })
       }).catch(error => console.log(error))
-    }
+  }
 
   return (
-    <div className="EmployeeEditPage">
+    <div className="CreateNewUserPage">
       <NavbarAdminAll />
       <img src="https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396073/rogers_images/eaql23eo6n1hnlmfnggy.png" alt="Roger's Logo" className='logo-create-new-user' />
-      
-      <h1>Edit Employee's Details</h1>
+      <h1>Create New Employee</h1>
+      <img src={imageUrl} alt="" 
+        style={{borderRadius: "5px", width: "100px", display: "grid", margin: "12px"}} 
+        id={imageUrl !== null ? "show-img" : "hide-img"}
+        />
       <div>
-        <form onSubmit={handleSubmit}>
-          <div className="input-group editedEmployee">
-            <div className="editedImageUrl">
-              <div className="input-checkbox">
-                <input
-                  type="checkbox"
-                  checked={currentStatus}
-                  onClick={e => setCurrentStatus(!currentStatus)}
-                />
-                <span className='formerEmployee'>Former employee</span>
-              </div>
+        <form onSubmit={e => handleSubmit(e)}>
+          <div className="input-group newUser">
+            <div className="imageUrl">
               <input
                 type="file"
                 className='image-input'
                 style={{borderRadius: "5px"}}
                 onChange={e => handleUpload(e)}
               />
-              <p className='no-img'>If no image is selected the system will upload the previous saved image</p>
+              <p id={!imageUrl ? "show-message" : "hide-message"}>If no image is selected the system will upload a default image</p>
             </div>
             <div className="name-employeeCode">
               <input
                 type="text"
                 className="form name"
-                style={{width: "350px"}}
                 required
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
@@ -122,7 +120,6 @@ const EmployeeEditPage = () => {
               <input
                 type="text"
                 className="form employee-code"
-                style={{width: "350px"}}
                 required
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
@@ -135,17 +132,15 @@ const EmployeeEditPage = () => {
               <input
                 type="text"
                 className="form dob"
-                style={{width: "350px"}}
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
                 value={dob}
                 onChange={e => setDob(e.target.value)}
-                placeholder="Date of birthday"
+                placeholder="Birthday YYYY-MM-DD"
               />
               <input
                 type="text"
                 className="form phone"
-                style={{width: "350px"}}
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
                 value={phoneNumber}
@@ -154,9 +149,8 @@ const EmployeeEditPage = () => {
               />
             </div>
             <div className="level-startingDate">
-            <select
-                className='form level edit-employee'
-                style={{width: "350px"}}
+              <select
+                className='form level'
                 value={level}
                 onChange={e => setLevel(e.target.value)}
               >
@@ -165,22 +159,22 @@ const EmployeeEditPage = () => {
               <input
                 type="text"
                 className="form startingDate"
-                style={{width: "350px"}}
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
                 value={startingDate}
                 onChange={e => setStartingDate(e.target.value)}
-                placeholder="Starting Date"
+                placeholder="Starting Date YYYY-MM-DD"
               />
             </div>
             <div className="department-position">
               <select
                 className='form department level'
-                style={{width: "350px"}}
                 value={department}
                 onChange={e => setDepartment(e.target.value)}
+                required
               >
-                <option value="generic">Choose a department</option>
+                <option value="">Choose a department</option>
+                <option value="generic">Generic</option>
                 <option value="production">Production</option>
                 <option value="molding">Molding</option>
                 <option value="packing">Packing</option>
@@ -190,7 +184,6 @@ const EmployeeEditPage = () => {
               <input
                 type="text"
                 className="form position"
-                style={{width: "350px"}}
                 required
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
@@ -203,16 +196,16 @@ const EmployeeEditPage = () => {
               <input
                 type="text"
                 className="form password"
-                style={{width: "350px"}}
-                disabled
+                required
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
-                placeholder="** Password CANNOT be updated"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Password"
               />
               <input
                 type="text"
                 className="form emergencyContact"
-                style={{width: "350px"}}
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
                 value={emergencyContact}
@@ -236,14 +229,14 @@ const EmployeeEditPage = () => {
             type="submit"
             className="btn btn-primary add-user"
             style={{width: "75px"}}
-          >Save</button>
+          >Add</button>
         </form>
       </div>
-      <Link to={`/employee/${employeeId}`} style={{margin: "20px"}}>
+      <Link to={'/employees'}>
         <p>Back</p>
       </Link>
     </div>
   )
 }
 
-export default EmployeeEditPage
+export default CreateNewEmployeePage

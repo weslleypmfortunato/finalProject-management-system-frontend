@@ -2,7 +2,7 @@ import './UserDetailsPage.css'
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import NavbarAdminAll from '../components/NavbarAdminAll';
+import NavbarAdminAll from '../../../components/NavbarAdminAll';
 import Swal from 'sweetalert2'
 
 const UserDetailsPage = props => {

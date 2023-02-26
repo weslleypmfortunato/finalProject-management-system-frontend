@@ -2,7 +2,7 @@ import './UserEditPage.css'
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import NavbarAdminAll from "../components/NavbarAdminAll";
+import NavbarAdminAll from "../../../components/NavbarAdminAll";
 import Swal from 'sweetalert2'
 
 const UserEditPage = () => {

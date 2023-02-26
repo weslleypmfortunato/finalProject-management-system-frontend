@@ -1,16 +1,16 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
-import LoginPage from './pages/LoginPage';
-import HomePage from './pages/HomePage';
-import CreateNewUserPage from './pages/CreateNewUserPage';
-import EmployeesListPage from './pages/EmployeesListPage';
-import CreateNewEmployeePage from './pages/CreateNewEmployeePage';
-import EmployeeDetailsPage from './pages/EmployeeDetailsPage';
-import EmployeeEditPage from './pages/EmployeeEditPage';
-import UsersListPage from './pages/UsersListPage';
-import UserDetailsPage from './pages/UserDetailsPage';
-import UserEditPage from './pages/UserEditPage';
-import FormerEmployeesListPage from './pages/FormerEmployeesList';
+import LoginPage from './pages/1.Employees&Users_Environment/1.Login_Page/LoginPage'
+import HomePage from './pages/1.Employees&Users_Environment/2.Home_Page/HomePage';
+import CreateNewUserPage from './pages/1.Employees&Users_Environment/4.Create_New_User_Page/CreateNewUserPage';
+import EmployeesListPage from './pages/1.Employees&Users_Environment/7.Employees_List_Page/EmployeesListPage';
+import CreateNewEmployeePage from './pages/1.Employees&Users_Environment/8.Create_New_Employee_Page/CreateNewEmployeePage';
+import EmployeeDetailsPage from './pages/1.Employees&Users_Environment/9.Employee_Details_Page/EmployeeDetailsPage';
+import EmployeeEditPage from './pages/1.Employees&Users_Environment/10.Employee_Edit_Page/EmployeeEditPage';
+import UsersListPage from './pages/1.Employees&Users_Environment/3.Users_List_Page/UsersListPage';
+import UserDetailsPage from './pages/1.Employees&Users_Environment/5.User_Details_Page/UserDetailsPage';
+import UserEditPage from './pages/1.Employees&Users_Environment/6.User_Edit_Page/UserEditPage';
+import FormerEmployeesListPage from './pages/1.Employees&Users_Environment/11.Former_Employees_List_Page/FormerEmployeesList';
 import IsLogged from './components/Islogged';
 import IsGuest from './components/IsGuest';
 

@@ -2,7 +2,7 @@ import './CreateNewUserPage.css'
 import axios from 'axios'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import NavbarAdminAll from '../components/NavbarAdminAll'
+import NavbarAdminAll from '../../../components/NavbarAdminAll'
 import Swal from 'sweetalert2'
 
 const CreateNewUserPage = () => {

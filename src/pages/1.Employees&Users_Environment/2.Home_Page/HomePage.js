@@ -1,9 +1,9 @@
 import './HomePage.css'
-import NavbarAdminHomePage from "../components/NavbarAdminHomePage";
-import UsersEnvironment from '../components/UsersEnvironment';
-import CollaboratorsEnvironment from '../components/CollaboratorsEnvironment';
-import TimesheetEnvironment from '../components/TimesheetEnvironment';
-import WarehouseMissingItemsEnvironment from '../components/WHMissingItems';
+import NavbarAdminHomePage from "../../../components/NavbarAdminHomePage";
+import UsersEnvironment from '../../../components/UsersEnvironment';
+import CollaboratorsEnvironment from '../../../components/CollaboratorsEnvironment';
+import TimesheetEnvironment from '../../../components/TimesheetEnvironment';
+import WarehouseMissingItemsEnvironment from '../../../components/WHMissingItems';
 
 const HomePage = () => {
 
