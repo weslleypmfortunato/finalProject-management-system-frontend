@@ -17,7 +17,7 @@ const IsLogged = ({roles, children}) => {
   if (roles && !roles.includes(loggedInUser.user.level)) {
     Swal.fire({
       text: 'Sorry! You do not have permission to access this feature.',
-      imageUrl: "https://static.vecteezy.com/system/resources/previews/004/618/631/original/cloud-storage-access-denied-icon-drop-shadow-silhouette-symbol-cloud-computing-security-negative-space-isolated-illustration-vector.jpg",
+      imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396866/rogers_images/rusn3wxtqqoqojixhdxq.webp",
       imageWidth: 200,
       imageHeight: 200,
       imageAlt: 'Custom image',

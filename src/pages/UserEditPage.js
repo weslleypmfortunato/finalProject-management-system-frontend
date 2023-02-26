@@ -2,7 +2,6 @@ import './UserEditPage.css'
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import rogersLogo from '../assets/images/logo-rogers.png'
 import NavbarAdminAll from "../components/NavbarAdminAll";
 import Swal from 'sweetalert2'
 
@@ -58,7 +57,7 @@ const UserEditPage = () => {
         setImageUrl(response.data.url)
         Swal.fire({
             text: 'Image uploaded succesfully',
-            imageUrl: "https://media.istockphoto.com/id/1175303918/vector/like-icon-vector-design.jpg?s=612x612&w=0&k=20&c=3dFZEggnAyodAcj9sSnnUvSZ69LQbE9kZof7vgGvAgs=",
+            imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677397112/rogers_images/odjljdihn1mx3si6gdes.jpg",
             imageWidth: 200,
             imageHeight: 200,
             imageAlt: 'Custom image',
@@ -73,8 +72,7 @@ const UserEditPage = () => {
   return (
     <div className="UserEditPage">
       <NavbarAdminAll />
-      <img src={rogersLogo} alt="Roger's Logo" className='logo-upd-user'/>
-      
+      <img src="https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396073/rogers_images/eaql23eo6n1hnlmfnggy.png" alt="Roger's Logo" className='logo-upd-user' />
       <h1>Edit user details</h1>
       <div>
         <form onSubmit={handleSubmit}>

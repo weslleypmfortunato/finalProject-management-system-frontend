@@ -2,7 +2,6 @@ import './CreateNewEmployeePage.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import rogersLogo from '../assets/images/logo-rogers.png'
 import NavbarAdminAll from '../components/NavbarAdminAll'
 import Swal from 'sweetalert2'
 
@@ -61,7 +60,7 @@ const CreateNewEmployeePage = props => {
           setRefresh(!refresh)
           Swal.fire({
             text: 'Employee created successfully',
-            imageUrl: "https://knowledgepoint.com/wp-content/uploads/2018/05/iStock-845888110.jpg",
+            imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677397055/rogers_images/vamtaidwul4evlgjhn6p.jpg",
             imageWidth: 200,
             imageHeight: 200,
             imageAlt: 'Custom image',
@@ -78,7 +77,7 @@ const CreateNewEmployeePage = props => {
         setImageUrl(response.data.url)
         Swal.fire({
             text: 'Image uploaded succesfully',
-            imageUrl: "https://media.istockphoto.com/id/1175303918/vector/like-icon-vector-design.jpg?s=612x612&w=0&k=20&c=3dFZEggnAyodAcj9sSnnUvSZ69LQbE9kZof7vgGvAgs=",
+            imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677397112/rogers_images/odjljdihn1mx3si6gdes.jpg",
             imageWidth: 200,
             imageHeight: 200,
             imageAlt: 'Custom image',
@@ -89,7 +88,7 @@ const CreateNewEmployeePage = props => {
   return (
     <div className="CreateNewUserPage">
       <NavbarAdminAll />
-      <img src={rogersLogo} alt="Roger's Logo" className='logo-create-new-user'/>
+      <img src="https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396073/rogers_images/eaql23eo6n1hnlmfnggy.png" alt="Roger's Logo" className='logo-create-new-user' />
       <h1>Create New Employee</h1>
       <div>
         <form onSubmit={e => handleSubmit(e)}>

@@ -13,7 +13,7 @@ const IsGuest = ({roles, children}) => {
   if (loggedInUser.user.id) {
     Swal.fire({
       text: 'Sorry! You are still logged in.',
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Warning_icon.svg/2306px-Warning_icon.svg.png",
+      imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396949/rogers_images/lfn5fdhvz3tcezcagj1s.png",
       imageWidth: 200,
       imageHeight: 200,
       imageAlt: 'Custom image',

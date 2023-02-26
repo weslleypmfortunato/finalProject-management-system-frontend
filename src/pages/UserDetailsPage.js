@@ -25,7 +25,7 @@ const UserDetailsPage = props => {
         setRefresh(!refresh)
         Swal.fire({
           text: 'User deleted successfully',
-          imageUrl: "https://knowledgepoint.com/wp-content/uploads/2018/05/iStock-845888110.jpg",
+          imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677397055/rogers_images/vamtaidwul4evlgjhn6p.jpg",
           imageWidth: 200,
           imageHeight: 200,
           imageAlt: 'Custom image',
