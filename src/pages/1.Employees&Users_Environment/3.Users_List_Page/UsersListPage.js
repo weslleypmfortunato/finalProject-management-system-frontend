@@ -1,9 +1,9 @@
 import './UsersListPage.css'
-import NavbarAdminAll from "../../../components/NavbarAdminAll";
+import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll'
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import SearchBarUser from '../../../components/SearchBarUser';
+import SearchBarUser from '../../../components/1.Components_Employees&Users_Environment/5.Search_Bars/SearchBarUser'
 
 const UsersListPage = () => {
   const [users, setUsers] = useState([])

@@ -2,7 +2,7 @@ import './EmployeeEditPage.css'
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import NavbarAdminAll from "../../../components/NavbarAdminAll";
+import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll'
 import Swal from 'sweetalert2'
 
 const EmployeeEditPage = () => {

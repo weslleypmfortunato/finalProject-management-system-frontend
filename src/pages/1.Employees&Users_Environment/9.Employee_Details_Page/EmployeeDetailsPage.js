@@ -2,7 +2,7 @@ import './EmployeeDetailsPage.css'
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import NavbarAdminAll from '../../../components/NavbarAdminAll';
+import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll'
 
 const EmployeeDetailsPage = props => {
   const [employee, setEmployee] = useState(null)

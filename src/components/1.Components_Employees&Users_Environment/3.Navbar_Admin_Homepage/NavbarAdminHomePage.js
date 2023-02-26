@@ -1,7 +1,7 @@
 import './NavbarAdminHomePage.css'
 import { Link } from "react-router-dom";
 import { useState, useContext } from 'react';
-import { AuthContext } from '../contexts/auth.context';
+import { AuthContext } from '../../../contexts/auth.context';
 
 
 const NavbarAdminHomePage = props => {

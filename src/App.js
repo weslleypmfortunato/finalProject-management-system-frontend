@@ -11,8 +11,8 @@ import UsersListPage from './pages/1.Employees&Users_Environment/3.Users_List_Pa
 import UserDetailsPage from './pages/1.Employees&Users_Environment/5.User_Details_Page/UserDetailsPage';
 import UserEditPage from './pages/1.Employees&Users_Environment/6.User_Edit_Page/UserEditPage';
 import FormerEmployeesListPage from './pages/1.Employees&Users_Environment/11.Former_Employees_List_Page/FormerEmployeesList';
-import IsLogged from './components/Islogged';
-import IsGuest from './components/IsGuest';
+import IsLogged from './components/1.Components_Employees&Users_Environment/6.Route_Access_Authorization/Islogged'
+import IsGuest from './components/1.Components_Employees&Users_Environment/6.Route_Access_Authorization/IsGuest'
 
 function App() {
   return (

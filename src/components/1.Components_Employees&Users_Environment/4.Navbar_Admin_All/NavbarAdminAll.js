@@ -1,6 +1,6 @@
 import './NavbarAdminAll.css'
 import { Link } from "react-router-dom";
-import { AuthContext } from '../contexts/auth.context';
+import { AuthContext } from '../../../contexts/auth.context';
 import { useContext, useState } from 'react';
 
 const NavbarAdminAll = props => {

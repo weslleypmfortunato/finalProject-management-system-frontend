@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom"
 import { useContext } from "react"
-import { AuthContext } from "../contexts/auth.context"
+import { AuthContext } from "../../../contexts/auth.context"
 import Swal from 'sweetalert2'
 
 const IsGuest = ({roles, children}) => {

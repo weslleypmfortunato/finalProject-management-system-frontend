@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { AuthContext } from '../contexts/auth.context';
+import { AuthContext } from '../../../contexts/auth.context'
 
 const Login = () => {
   const [ employeeCode, setEmployeeCode ] = useState('')
