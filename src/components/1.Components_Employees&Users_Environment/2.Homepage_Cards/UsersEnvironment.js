@@ -1,11 +1,13 @@
 import './UsersEnvironment.css'
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
 
 const UsersEnvironment = () => {
+
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
 
   return (
-    <div className="cards">
+    <div className='cards'>
       <Link to='/users' 
         className='card-description'
         id={loggedInUser.user.level !== "admin" ? "no-btn" : "enable-btn"}

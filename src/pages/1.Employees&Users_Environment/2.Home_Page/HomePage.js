@@ -10,7 +10,7 @@ const HomePage = () => {
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
 
   return (
-    <div className="HomePage">
+    <div className='Homepage'>
       <NavbarAdminHomePage />
       <div className="user-profileImg">
         <img src={ loggedInUser.user.imageUrl } alt="User" style={{width: "60px", height: "60px", borderRadius: "50%"}}/>

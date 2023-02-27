@@ -7,10 +7,12 @@ import { AuthContext } from '../../../contexts/auth.context';
 const NavbarAdminHomePage = props => {
   const [employee] = useState('')
 
-  const {logout} = useContext(AuthContext)
+  const { logout } = useContext(AuthContext)
+
 
   return (
-    <nav className="NavbarAdminHomePage" >
+    // <nav className={`NavbarAdminHomePage`} >
+    <nav className='NavbarAdminHomePage' >
       <div className='logout-link'>
         <ul>
           <li 

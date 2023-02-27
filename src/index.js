@@ -6,12 +6,15 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router } from 'react-router-dom'
 import { AuthProvider } from './contexts/auth.context'
+// import { ThemeProvider } from './contexts/theme.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <AuthProvider>
-      <App />
+      {/* <ThemeProvider> */}
+        <App />
+      {/* </ThemeProvider> */}
     </AuthProvider>
   </Router>
 );

@@ -48,7 +48,7 @@ const UsersListPage = () => {
           )
         })}
       </div>
-      <Link to={'/homepage'} style={{margin: "20px"}}>
+      <Link to={'/home'} style={{margin: "20px"}}>
         <p>Home</p>
       </Link>
     </div>
