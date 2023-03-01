@@ -45,6 +45,7 @@ const EmployeeDetailsPage = props => {
           <p><span className="employee-info">Name:</span> { employee.name }</p>
           <p><span className="employee-info">Employee Code: </span>{ employee.employeeCode }</p>
           <p><span className="employee-info">Date of birthday: </span>{ employee.dob }</p>
+          <p><span className="employee-info">Phone Number </span>{ employee.phoneNumber }</p>
           <p><span className="employee-info">Started at: </span>{ employee.startingDate }</p>
           <p><span className="employee-info">Department: </span>{ employee.department }</p>
           <p><span className="employee-info">Current position: </span>{ employee.position }</p>
