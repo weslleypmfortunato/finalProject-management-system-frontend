@@ -38,7 +38,7 @@ function SearchBarFormerEmployee() {
             return (result.name.toLowerCase().includes(search.toLowerCase()))
           }).map((post, index) => (
             <div className="box" key={index}>
-              <Link to={`/employee/${post._id}`} style={{textDecoration: "none"}}>
+              <Link to={`/user/${post._id}`} style={{textDecoration: "none"}}>
                 <p style={{color: "black" }} className="search-result"> {post.name}</p>
               </Link>
             </div>

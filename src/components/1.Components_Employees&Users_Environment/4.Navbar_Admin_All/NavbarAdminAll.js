@@ -22,11 +22,6 @@ const NavbarAdminAll = props => {
           <li 
             className='admin-all-link' 
             style={{listStyleType: "none"}}>
-            <Link to='/users'>Users List</Link>
-          </li>
-          <li 
-            className='admin-all-link' 
-            style={{listStyleType: "none"}}>
             <Link to='/employees'>Employees List</Link>
           </li>
           <li 

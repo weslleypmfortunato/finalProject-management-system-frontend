@@ -18,7 +18,7 @@ const EmployeesListPage = props => {
   }
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/employee`, { headers })
+    axios.get(`${process.env.REACT_APP_API_URL}/users`, { headers })
       .then(response => {
         setEmployees(response.data)
       }).catch(error => console.log(error))
@@ -31,7 +31,7 @@ const EmployeesListPage = props => {
       <h1 className='welcome-employee-list'>Current Employees List</h1>
       <div className="employees-list">
         <div className="createNewEmployee-formerEmployeeList-btns">
-          <Link to='/sign-up/employee'>
+          <Link to='/sign-up/user'>
             <button
               type="button"
               className="btn btn-primary createNewUser-btn"
@@ -58,7 +58,7 @@ const EmployeesListPage = props => {
                     <p className="card-text employee-details"><span>Employee Code:</span> {employee.employeeCode}</p>
                     <p className="card-text employee-details"><span className="employee-detail">Position:</span> {employee.position}</p>
                     <p className="card-text employee-details"><span className="employee-detail">Department:</span> {employee.department}</p>
-                    <a href={`/employee/${employee._id}`} className="btn btn-primary employee-details-btn">Details</a>
+                    <a href={`/user/${employee._id}`} className="btn btn-primary employee-details-btn">Details</a>
                   </div>
                 </div>
               </div>

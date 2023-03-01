@@ -5,7 +5,7 @@
 
 .UserDetailsPage {
   display: grid;
-  gap: 20px;
+  gap: px;
 }
 
 .edit-user-btn {
@@ -14,9 +14,9 @@
 
 .user-img {
   display: flex;
-  align-items: center;
   gap: 32px;
   margin-left: 96px;
+  margin-top: 64px;
 }
 
 .info-user {
@@ -33,4 +33,12 @@
 
 .delete-user-btn {
   margin: 150px auto;
+}
+
+#no-btn {
+  display: none;
+}
+
+#no-delete-btn {
+  display: none;
 }

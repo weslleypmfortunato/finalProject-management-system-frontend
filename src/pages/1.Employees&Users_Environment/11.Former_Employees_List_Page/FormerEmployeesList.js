@@ -40,7 +40,7 @@ const FormerEmployeesListPage = () => {
                   <p className="card-text employee-details"><span>Employee Code:</span> {formerEmployee.employeeCode}</p>
                   <p className="card-text employee-details"><span className="employee-detail">Position:</span> {formerEmployee.position}</p>
                   <p className="card-text employee-details"><span className="employee-detail">Department:</span> {formerEmployee.department}</p>
-                  <a href={`/employee/${formerEmployee._id}`} className="btn btn-primary employee-details-btn">Details</a>
+                  <a href={`/user/${formerEmployee._id}`} className="btn btn-primary employee-details-btn">Details</a>
               </div>
             </div>
       </div>

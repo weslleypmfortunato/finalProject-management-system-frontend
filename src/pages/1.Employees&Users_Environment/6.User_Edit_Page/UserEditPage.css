@@ -6,7 +6,7 @@
 
 .logo-upd-user {
   margin: 20px 0;
-  width: 200px;
+  width: 100px;
 }
 
 .editedUser {
@@ -15,10 +15,18 @@
   gap: 8px;
 }
 
-.input-user-image, .edit-name, .edit-employee-code, .edit-level, .edit-department, .edit-password, .edit-input-comment {
+.user-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-name, .edit-employee-code, .edit-level-user, .edit-department-user, .edit-dob, .edit-phone, .edit-startingDate, .edit-emergencyContact, .edit-password, .edit-position{
   border: 1px solid lightgray;
   padding: 3px 5px;
   border-radius: 5px;
+  margin: 0 0 8px 8px;
+  width: 220px;
 }
 
 .update-user {
@@ -28,7 +36,7 @@
 .input-checkbox {
   display: flex;
   gap: 8px;
-  margin: 10px 0;
+  margin: 10px 0 10px 50px;
 }
 
 .editedImageUrl {
@@ -42,4 +50,12 @@
 
 .formerEmployee {
   font-weight: 500;
+}
+
+.image-input {
+  margin-left: 50px;
+}
+
+.no-img {
+  margin-bottom: 16px;
 }

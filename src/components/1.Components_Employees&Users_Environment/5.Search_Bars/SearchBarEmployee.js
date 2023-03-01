@@ -14,7 +14,7 @@ function SearchBarEmployee() {
   }
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_API_URL}/employee`, { headers })
+    axios.get(`${process.env.REACT_APP_API_URL}/users`, { headers })
     .then(response => {
       setResults(response.data)
     }).catch(err => console.log(err))
@@ -38,7 +38,7 @@ function SearchBarEmployee() {
             return (result.name.toLowerCase().includes(search.toLowerCase()))
           }).map((post, index) => (
             <div className="box" key={index}>
-              <Link to={`/employee/${post._id}`} style={{textDecoration: "none"}}>
+              <Link to={`/user/${post._id}`} style={{textDecoration: "none"}}>
                 <p style={{color: "black" }} className="search-result"> {post.name}</p>
               </Link>
             </div>
