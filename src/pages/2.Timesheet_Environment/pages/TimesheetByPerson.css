@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.TimesheetByPerson {
+  display: grid;
+  place-items: center;
+  gap: 20px;
+}
+
+.image-h1-myTimesheet {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.h1-my-timesheet {
+  margin: 20px 0;
+}
+
+.logout-mytimesheet {
+  margin-top: 20px;
+}
+
+#under-validation {
+  background-color: lightgoldenrodyellow;
+  border-radius: 50px;
+}
+
+#validated {
+  background-color: lightgreen;
+  border-radius: 50px;
+}
+
+.questions-concerns {
+  color: red;
+}

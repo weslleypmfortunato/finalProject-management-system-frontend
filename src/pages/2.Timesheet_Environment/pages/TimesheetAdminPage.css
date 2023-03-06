@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.TimesheetAdminPage {
+  display: grid;
+  place-items: center;
+}
+
+.header-timesheet {
+  margin: 20px;
+}
+
+.initial-final-date {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.initial-date, .final-date {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  width: 200px;
+  padding: 3px;
+}
+
+.search-timesheet {
+  margin: 20px;
+}
+
+.table {
+  max-width: 1000px;
+}

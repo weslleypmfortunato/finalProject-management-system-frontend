@@ -9,7 +9,9 @@ import UserEditPage from './pages/1.Employees&Users_Environment/6.User_Edit_Page
 import FormerEmployeesListPage from './pages/1.Employees&Users_Environment/11.Former_Employees_List_Page/FormerEmployeesList';
 import IsLogged from './components/1.Components_Employees&Users_Environment/6.Route_Access_Authorization/Islogged'
 import IsGuest from './components/1.Components_Employees&Users_Environment/6.Route_Access_Authorization/IsGuest'
-import TimesheetAdminPage from './pages/2.Timesheet_Environment/TimesheetAdminPage.js';
+import TimesheetAdminPage from './pages/2.Timesheet_Environment/pages/TimesheetAdminPage.js.js';
+import ClockInClockOutPage from './pages/2.Timesheet_Environment/pages/ClockInClockOutPage';
+import TimesheetByPerson from './pages/2.Timesheet_Environment/pages/TimesheetByPerson';
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
         <Route path='/user/:userId' element={ <IsLogged roles={["admin", "supervisor", "user"]}> <UserDetailsPage /> </IsLogged> } />
         <Route path='/user/edit/:userId' element={ <IsLogged roles={["admin"]}> <UserEditPage /> </IsLogged> } />
         <Route path='/former-employees' element={ <FormerEmployeesListPage /> } />
-        <Route path='/timesheet' element={ <TimesheetAdminPage />} />
+        <Route path='/timesheet' element={ <IsLogged roles={["admin", "supervisor"]}><TimesheetAdminPage /></IsLogged>} />
+        <Route path='/timesheet/clockin-clockout' element={ <ClockInClockOutPage /> } />
+        <Route path='/my-timesheet' element={ <IsLogged><TimesheetByPerson /></IsLogged> } />
       </Routes>
     </div>
   );

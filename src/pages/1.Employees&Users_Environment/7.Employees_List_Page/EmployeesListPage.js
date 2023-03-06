@@ -5,7 +5,6 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import SearchBarEmployee from '../../../components/1.Components_Employees&Users_Environment/5.Search_Bars/SearchBarEmployee'
 
-
 const EmployeesListPage = props => {
   const [employees, setEmployees] = useState([])
   const [refresh] = useState(true)
