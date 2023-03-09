@@ -11,7 +11,9 @@ import IsLogged from './components/1.Components_Employees&Users_Environment/6.Ro
 import IsGuest from './components/1.Components_Employees&Users_Environment/6.Route_Access_Authorization/IsGuest'
 import TimesheetAdminPage from './pages/2.Timesheet_Environment/pages/TimesheetAdminPage.js.js';
 import ClockInClockOutPage from './pages/2.Timesheet_Environment/pages/ClockInClockOutPage';
-import TimesheetByPerson from './pages/2.Timesheet_Environment/pages/TimesheetByPerson';
+import TimesheetByPerson from './pages/2.Timesheet_Environment/pages/MyTimesheetPage';
+import TimesheetValidationPage from './pages/2.Timesheet_Environment/pages/TimesheetDetailsPage';
+import TimesheetDetailsPage from './pages/2.Timesheet_Environment/pages/TimesheetDetailsPage';
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
         <Route path='/timesheet' element={ <IsLogged roles={["admin", "supervisor"]}><TimesheetAdminPage /></IsLogged>} />
         <Route path='/timesheet/clockin-clockout' element={ <ClockInClockOutPage /> } />
         <Route path='/my-timesheet' element={ <IsLogged><TimesheetByPerson /></IsLogged> } />
+        <Route path='/timesheet/:id' element={ <TimesheetDetailsPage />} />
       </Routes>
     </div>
   );

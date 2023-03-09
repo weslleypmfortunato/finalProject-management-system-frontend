@@ -22,7 +22,6 @@ const TimesheetAdminPage = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/timesheet`, { headers })
       .then(response => {
         setTimesheets(response.data)
-        console.log("TIMESHEETS ==> ", response.data)
       }).catch (error => console.log(error))
   }, [refresh])
 
@@ -53,32 +52,26 @@ const TimesheetAdminPage = () => {
         <table className="table table-hover table-sm">
           <thead>
             <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Employee Code</th>
-              <th scope="col">Department</th>
-              <th scope="col">Worked Hours</th>
-              <th scope="col">Date</th>
-              <th scope="col">Details</th>
+              <th scope="col" className='details-table'>Name</th>
+              <th scope="col" className='details-table'>Employee Code</th>
+              <th scope="col" className='details-table'>Department</th>
+              <th scope="col" className='details-table'>Worked Hours</th>
+              <th scope="col" className='details-table'>Details</th>
             </tr>
           </thead>
           {timesheets.length > 0 && timesheets.map(timesheet => {
+            
+            console.log("TIMESHEET ==>",  timesheet)
             return (
               <tbody key={timesheet._id}>
                 <tr>
-                  <th scope="row">{timesheet.employeeId.name}</th>
-                  <td>{timesheet.employeeId.employeeCode}</td>
-                  <td>{timesheet.employeeId.department}</td>
-                  {timesheet.clockOut !== null && timesheet.employeeId.fulltime === true &&
-                    <td>{((moment(timesheet.clockOut).diff(timesheet.clockIn)-1800000)/3600000).toFixed(2)}</td> }
-                  {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
-                    <td><b>Waiting for Clock out</b></td> }
-                  {timesheet.clockOut !==null && timesheet.employeeId.fulltime === false &&  
-                    <td>{((moment(timesheet.clockOut).diff(timesheet.clockIn))/3600000).toFixed(2)}</td>}
-                  {timesheet.clockOut === null && timesheet.employeeId.fulltime === false &&
-                  <td><b>Waiting for Clock out</b></td>
-                  }   
-                  <td>{timesheet.clockIn.split('T')[0]}</td>
-                  <td>Details</td>
+                  <th scope="row">{timesheet.name}</th>
+                  <td>{timesheet.employeeCode}</td>
+                  <td>{timesheet.department}</td>
+                  <td>{timesheet.totalHours}</td>
+                  <td>
+                    <Link >Details</Link>
+                  </td>
                 </tr>
               </tbody>
             )

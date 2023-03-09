@@ -11,7 +11,7 @@
 
 .logo-create-new-user {
   margin: 20px 0;
-  width: 200px;
+  width: 100px;
 }
 
 .name-user, .employee-code-user, .level-user, .department-user, .dob-user, .phone-user, .startingDate-user, .emergencyContact-user, .password-user, .position-user {
@@ -72,4 +72,8 @@
 
 .input-comment-user {
   margin-top: 8px;
+}
+
+.fulltime-partime {
+  max-width: 350px;
 }

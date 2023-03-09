@@ -49,7 +49,7 @@ const EmployeesListPage = props => {
         <div className="employee-cards">
           {employees.length > 0 && employees.map(employee => {
             return (
-              <div className="single-employee-card" style={{display: "flex", flexDirection: "row"}}>
+              <div key={employee._id} className="single-employee-card" style={{display: "flex", flexDirection: "row"}}>
                 <div className="card employee-card" style={{width: "14rem"}}>
                   <img src={employee.imageUrl} className="card-img-top" alt="Employee Profile" style={{width: "150px", height: "150px", margin: "auto", marginTop: "16px", borderTopLeftRadius: "25%", borderBottomRightRadius: "25%"}} />
                   <div className="card-body">

@@ -17,6 +17,7 @@ const UserEditPage = () => {
   const [position, setPosition] = useState('')
   const [startingDate, setStartingDate] = useState('')
   const [emergencyContact, setEmergencyContact] = useState('')
+  const [fulltime, setFullTime] = useState(true)
   const [currentStatus, setCurrentStatus] = useState(false)
   const [loading, setLoading] = useState(true)
 
@@ -34,7 +35,7 @@ const UserEditPage = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/user/${userId}`, { headers })
       .then(response => {
         const {
-          name, employeeCode, level, department, comments, imageUrl, dob, phoneNumber, position, startingDate, emergencyContact, currentStatus } = response.data
+          name, employeeCode, level, department, comments, imageUrl, dob, phoneNumber, position, startingDate, emergencyContact, currentStatus, fulltime } = response.data
         setName(name)
         setEmployeeCode(employeeCode)
         setLevel(level)
@@ -47,13 +48,14 @@ const UserEditPage = () => {
         setStartingDate(startingDate)
         setEmergencyContact(emergencyContact)
         setCurrentStatus(currentStatus)
+        setFullTime(fulltime)
         setLoading(false)
       }).catch(error => console.log(error))
   }, [userId])
 
   const handleSubmit = e => {
     e.preventDefault()
-    const editedUser = { name, employeeCode, level, department, comments, imageUrl, dob, phoneNumber, position, startingDate, emergencyContact, currentStatus }
+    const editedUser = { name, employeeCode, level, department, comments, imageUrl, dob, phoneNumber, position, startingDate, emergencyContact, currentStatus, fulltime }
 
     axios.put(`${process.env.REACT_APP_API_URL}/user/edit/${userId}`, editedUser)
       .then(response => {
@@ -96,7 +98,7 @@ const UserEditPage = () => {
           <div className="input-checkbox">
             <input
               type="checkbox"
-              checked={currentStatus}
+              defaultChecked={currentStatus}
               onClick={e => setCurrentStatus(!currentStatus)}
             />
             <span className='formerEmployee'>Former employee</span>
@@ -142,7 +144,6 @@ const UserEditPage = () => {
                     value={level}
                     onChange={e => setLevel(e.target.value)}
                   >
-                    <option value="user">Choose an user level</option>
                     <option value="admin">Administrator</option>
                     <option value="supervisor">Supervisor</option>
                     <option value="user">User</option>
@@ -153,7 +154,6 @@ const UserEditPage = () => {
                     value={department}
                     onChange={e => setDepartment(e.target.value)}
                   >
-                    <option value="">Choose a department</option>
                     <option value="generic">Generic</option>
                     <option value="production">Production</option>
                     <option value="molding">Molding</option>
@@ -163,10 +163,20 @@ const UserEditPage = () => {
                   </select>
                 </div>
                 <div className="edit-dob-phoneNumber">
+                  <select
+                  className='form department-user'
+                  style={{borderRadius: "5px", height: "32px", width: "100px"}}
+                  required
+                  value={fulltime}
+                  onChange={e => setFullTime(e.target.value)}
+                >
+                  <option value={true}>Full-time</option>
+                  <option value={false}>Part-time</option>
+                </select>
                   <input
                     type="text"
                     className="form edit-dob"
-                    style={{borderRadius: "5px"}}
+                    style={{borderRadius: "5px", width: "170px"}}
                     aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default"
                     value={dob}
@@ -176,7 +186,7 @@ const UserEditPage = () => {
                   <input
                     type="text"
                     className="form edit-phone"
-                    style={{borderRadius: "5px"}}
+                    style={{borderRadius: "5px", width: "155px"}}
                     aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default"
                     value={phoneNumber}

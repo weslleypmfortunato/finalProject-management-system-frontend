@@ -1,4 +1,4 @@
-import './TimesheetByPerson.css'
+import './MyTimesheetPage.css'
 import NavbarAdminHomePage from "../../../components/1.Components_Employees&Users_Environment/3.Navbar_Admin_Homepage/NavbarAdminHomePage";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -8,8 +8,7 @@ import moment from 'moment-timezone'
 const TimesheetByPerson = () => {
   const [timesheets, setTimesheets] = useState([])
   const [userName, setUserName] = useState('')
-  const [status, setStatus] = useState(false)
-  const [loggedOutUser, setLoggedOutUser] = useState({name: '', user:{}})
+  const [setLoggedOutUser] = useState({name: '', user:{}})
   const [refresh] = useState(true)
 
   const navigate = useNavigate()
@@ -32,7 +31,7 @@ const TimesheetByPerson = () => {
       setTimesheets(response.data)
       setUserName(loggedInUser.user.name)
     }).catch(error => console.log(error))
-  }, [refresh])
+  }, [ refresh ])
 
   return (
     <div className="TimesheetByPerson">
@@ -76,6 +75,7 @@ const TimesheetByPerson = () => {
                 }
               </tr>
             </tbody>
+            
           )
         })}
       </table>

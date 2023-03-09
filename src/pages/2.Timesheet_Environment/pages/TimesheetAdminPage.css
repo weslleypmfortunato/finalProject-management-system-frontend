@@ -32,3 +32,7 @@
 .table {
   max-width: 1000px;
 }
+
+.details-table {
+  min-width: 115px;
+}

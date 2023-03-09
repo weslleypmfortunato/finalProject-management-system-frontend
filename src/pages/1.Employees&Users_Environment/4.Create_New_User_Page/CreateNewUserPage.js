@@ -19,6 +19,7 @@ const CreateNewUserPage = () => {
   const [position, setPosition] = useState('')
   const [startingDate, setStartingDate] = useState('')
   const [emergencyContact, setEmergencyContact] = useState('')
+  const [fulltime, setFullTime] = useState(true)
   const [currentStatus, setCurrentStatus] = useState(false)
   const [refresh, setRefresh] = useState(true)
 
@@ -32,7 +33,7 @@ const CreateNewUserPage = () => {
     e.preventDefault()
 
     const newUser = {
-      name, employeeCode, level, department, password, comments, dob, phoneNumber, startingDate, emergencyContact, position, currentStatus
+      name, employeeCode, level, department, password, comments, dob, phoneNumber, startingDate, emergencyContact, position, currentStatus, fulltime
     }
 
     if (imageUrl) {
@@ -52,6 +53,7 @@ const CreateNewUserPage = () => {
     setStartingDate('')
     setEmergencyContact('')
     setCurrentStatus('')
+    setFullTime('')
 
     axios.post(`${process.env.REACT_APP_API_URL}/auth/sign-up/user`, newUser, { headers })
       .then(response => {
@@ -154,10 +156,21 @@ const CreateNewUserPage = () => {
                 </select>
               </div>
             <div className="dob-phoneNumber">
+              <select
+                className='form department-user'
+                style={{borderRadius: "5px", height: "32px", width: "100px"}}
+                required
+                value={fulltime}
+                onChange={e => setFullTime(e.target.value)}
+              >
+                <option value="">Shift time</option>
+                <option value={true}>Full-time</option>
+                  <option value={false}>Part-time</option>
+              </select>
               <input
                   type="text"
                   className="form dob-user"
-                  style={{borderRadius: "5px"}}
+                  style={{borderRadius: "5px", width: "172px"}}
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-default"
                   value={dob}
@@ -167,7 +180,7 @@ const CreateNewUserPage = () => {
                 <input
                   type="text"
                   className="form phone-user"
-                  style={{borderRadius: "5px"}}
+                  style={{borderRadius: "5px", width: "160px"}}
                   aria-label="Sizing example input"
                   aria-describedby="inputGroup-sizing-default"
                   value={phoneNumber}

@@ -32,7 +32,7 @@ const FormerEmployeesListPage = () => {
       <div className="employee-cards">
         {formerEmployees.length > 0 && formerEmployees.map(formerEmployee => {
           return (
-            <div className="single-employee-card" style={{display: "flex", flexDirection: "row"}}>
+            <div key={formerEmployee._id} className="single-employee-card" style={{display: "flex", flexDirection: "row"}}>
               <div className="card employee-card" style={{width: "14rem"}}>
               <img src={formerEmployee.imageUrl} className="card-img-top" alt="Employee Profile" style={{width: "150px", height: "150px", margin: "auto", marginTop: "16px", borderTopLeftRadius: "25%", borderBottomRightRadius: "25%"}} />
                 <div className="card-body">
