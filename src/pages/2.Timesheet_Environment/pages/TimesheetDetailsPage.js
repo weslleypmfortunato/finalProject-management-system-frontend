@@ -3,12 +3,16 @@ import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Env
 import axios from "axios";
 import { useEffect, useState } from "react";
 import moment from 'moment-timezone'
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+require('moment-precise-range-plugin')
 
 const TimesheetDetailsPage = () => {
   const [timesheets, setTimesheets] = useState([])
   const [status, setStatus] = useState(false)
   const [refresh] = useState(true)
+
+  const moment = require("moment");
+  const momentDurationFormatSetup = require("moment-duration-format");
 
   const { id } = useParams()
 
@@ -55,7 +59,6 @@ const TimesheetDetailsPage = () => {
           </tr>
         </thead>
         {timesheets.length > 0 && timesheets.map(timesheet => {
-          console.log("TIMESHEET DEPOIS DO MAP ==> ", timesheets)
           return (
             <tbody key={timesheet._id}>
               <tr>
@@ -65,14 +68,15 @@ const TimesheetDetailsPage = () => {
                 <td>{timesheet.clockIn.substr(11, 5)}</td>
                 <td>{timesheet.clockOut.substr(11, 5)}</td>
                 {timesheet.clockOut !== null && timesheet.employeeId.fulltime === true &&
-                <td>{((moment(timesheet.clockOut).diff(timesheet.clockIn)-1800000)/3600000).toFixed(2)}</td> }
+                  <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 - 1800), "seconds").format("h:mm") }</td>
+                }
                 {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
                 <td><b>Waiting for Clock out</b></td> }
-                {timesheet.clockOut !==null && timesheet.employeeId.fulltime === false &&  
-                <td>{((moment(timesheet.clockOut).diff(timesheet.clockIn))/3600000).toFixed(2)}</td>}
-                {timesheet.clockOut === null && timesheet.employeeId.fulltime === false &&
-                <td><b>Waiting for Clock out</b></td>
-                }   
+                {timesheet.clockOut !== null && timesheet.employeeId.fulltime === false &&
+                  <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 + 900), "seconds").format("h:mm") }</td>
+                }
+                {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
+                <td><b>Waiting for Clock out</b></td> }  
                 <td>
                   {/* <form onSubmit={handleSubmit}> */}
 
@@ -90,7 +94,7 @@ const TimesheetDetailsPage = () => {
                   <button
                     type="submit"
                     className="btn btn-primary approve-timesheet"
-                    style={{width: "75px", height: "35px"}}
+                    style={{width: "75px"}}
                   >Edit </button>
                 </td>
               </tr>
@@ -101,8 +105,9 @@ const TimesheetDetailsPage = () => {
       <button
         type="submit"
         className="btn btn-primary approve-timesheet"
-        style={{width: "75px", height: "35px"}}
+        style={{width: "75px"}}
       >Save </button>
+      <Link to={'/timesheet'}>Back</Link>
     </div>
   )
 }
