@@ -36,3 +36,11 @@
 .details-table {
   min-width: 115px;
 }
+
+#errorMessage {
+  display: block;
+}
+
+#noErrorMessage {
+  display: none;
+}

@@ -3,7 +3,7 @@ import NavbarAdminHomePage from "../../../components/1.Components_Employees&User
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import moment from 'moment-timezone'
+require('moment-precise-range-plugin')
 
 const TimesheetByPerson = () => {
   const [timesheets, setTimesheets] = useState([])
@@ -12,6 +12,8 @@ const TimesheetByPerson = () => {
   const [refresh] = useState(true)
 
   const navigate = useNavigate()
+  const moment = require("moment");
+  const momentDurationFormatSetup = require("moment-duration-format");
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
 
@@ -60,15 +62,38 @@ const TimesheetByPerson = () => {
                 <td>{timesheet.clockIn.split('T')[0]}</td>
                 <td>{timesheet.clockIn.substr(11, 5)}</td>
                 <td>{timesheet.clockOut.substr(11, 5)}</td>
+
                 {timesheet.clockOut !== null && timesheet.employeeId.fulltime === true &&
-                <td>{((moment(timesheet.clockOut).diff(timesheet.clockIn)-1800000)/3600000).toFixed(2)}</td> }
+                  <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 - 1800), "seconds").format("h:mm") }</td>
+                }
+                {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
+                <td><b>Waiting for Clock out</b></td> }
+                {timesheet.clockOut !== null && timesheet.employeeId.fulltime === false &&
+                  <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 + 900), "seconds").format("h:mm") }</td>
+                }
+                {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
+                <td><b>Waiting for Clock out</b></td> }
+
+                {/* <td>{ moment.duration(126, "minutes").format("h:mm") }</td> */}
+
+
+                {/* <td>{moment.preciseDiff(timesheet.clockIn, timesheet.clockOut)}</td> O + PROXIMO */}
+                {/* <td>{moment(timesheet.clockOut).diff(moment(timesheet.clockIn), 'hours', true) - 0.5}</td> */}
+                {/* <td>{moment(timesheet.clockOut).from(moment(timesheet.clockIn)) }</td> */}
+                {/* <td>{moment(timesheet.clockOut).from(moment(timesheet.clockIn), true)}</td> */}
+
+
+
+                {/* {timesheet.clockOut !== null && timesheet.employeeId.fulltime === true &&
+                <td>{((moment(timesheet.clockOut).diff(timesheet.clockIn)-1800000)/3600000).toFixed(2)}</td>}
                 {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
                 <td><b>Waiting for Clock out</b></td> }
                 {timesheet.clockOut !==null && timesheet.employeeId.fulltime === false &&  
                 <td>{((moment(timesheet.clockOut).diff(timesheet.clockIn))/3600000).toFixed(2)}</td>}
                 {timesheet.clockOut === null && timesheet.employeeId.fulltime === false &&
                 <td><b>Waiting for Clock out</b></td>
-                }   
+                }    */}
+
                 {timesheet.status === false ? 
                 <td id={timesheet.status === false && 'under-validation'} >Under validation</td> : 
                 <td id={timesheet.status === true && 'validated'} >Approved</td>

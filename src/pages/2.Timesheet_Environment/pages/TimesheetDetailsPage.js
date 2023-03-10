@@ -44,6 +44,7 @@ const TimesheetDetailsPage = () => {
       <table className="table table-hover table-sm align-middle">
         <thead>
           <tr>
+            <th scope="col">Name</th>
             <th scope="col">Employee Code</th>
             <th scope="col">Date</th>
             <th scope="col">Clock In</th>
@@ -58,7 +59,8 @@ const TimesheetDetailsPage = () => {
           return (
             <tbody key={timesheet._id}>
               <tr>
-                <th scope="row">{timesheet.employeeId.employeeCode}</th>
+                <th scope="row">{timesheet.employeeId.name}</th>
+                <td>{timesheet.employeeId.employeeCode}</td>
                 <td>{timesheet.clockIn.split('T')[0]}</td>
                 <td>{timesheet.clockIn.substr(11, 5)}</td>
                 <td>{timesheet.clockOut.substr(11, 5)}</td>
