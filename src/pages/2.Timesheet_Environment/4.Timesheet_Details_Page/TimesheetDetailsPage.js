@@ -1,4 +1,4 @@
-import './MyTimesheetPage.css'
+import '../2.My_Timesheet_Page/MyTimesheetPage.css'
 import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll';
 import axios from "axios";
 import { useEffect, useState } from "react";

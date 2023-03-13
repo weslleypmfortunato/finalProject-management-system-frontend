@@ -9,10 +9,11 @@ import UserEditPage from './pages/1.Employees&Users_Environment/6.User_Edit_Page
 import FormerEmployeesListPage from './pages/1.Employees&Users_Environment/11.Former_Employees_List_Page/FormerEmployeesList';
 import IsLogged from './components/1.Components_Employees&Users_Environment/6.Route_Access_Authorization/Islogged'
 import IsGuest from './components/1.Components_Employees&Users_Environment/6.Route_Access_Authorization/IsGuest'
-import TimesheetAdminPage from './pages/2.Timesheet_Environment/pages/TimesheetAdminPage.js.js';
-import ClockInClockOutPage from './pages/2.Timesheet_Environment/pages/ClockInClockOutPage';
-import TimesheetByPerson from './pages/2.Timesheet_Environment/pages/MyTimesheetPage';
-import TimesheetDetailsPage from './pages/2.Timesheet_Environment/pages/TimesheetDetailsPage';
+import TimesheetAdminPage from './pages/2.Timesheet_Environment/3.Timesheet_Admin_Page/TimesheetAdminPage.js.js';
+import ClockInClockOutPage from './pages/2.Timesheet_Environment/1.ClockIn_ClockOut_Page/ClockInClockOutPage';
+import TimesheetByPerson from './pages/2.Timesheet_Environment/2.My_Timesheet_Page/MyTimesheetPage.js'
+import TimesheetDetailsPage from './pages/2.Timesheet_Environment/4.Timesheet_Details_Page/TimesheetDetailsPage';
+import ProductsListPage from './pages/3.Warehouse_Environment/ProductsListPage';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path='/timesheet/clockin-clockout' element={ <ClockInClockOutPage /> } />
         <Route path='/my-timesheet' element={ <IsLogged><TimesheetByPerson /></IsLogged> } />
         <Route path='/timesheet/:id' element={ <IsLogged roles={["admin", "supervisor"]}><TimesheetDetailsPage /></IsLogged> } />
+        <Route path='/products' element={ <IsLogged><ProductsListPage /></IsLogged> } />
       </Routes>
     </div>
   );
