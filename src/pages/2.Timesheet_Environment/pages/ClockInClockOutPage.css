@@ -3,14 +3,23 @@
   padding: 0;
 }
 
+.ClockInClockOutPage {
+  margin-top: 64px;
+}
+
 .clockInOut-header {
   margin: 20px;
+}
+
+.logo-clockInOut {
+  width: 200px;
 }
 
 .timesheet-employeeCode-password-input {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 16px;
 
 }

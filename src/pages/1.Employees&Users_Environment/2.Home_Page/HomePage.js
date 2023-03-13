@@ -3,10 +3,14 @@ import NavbarAdminHomePage from "../../../components/1.Components_Employees&User
 import CollaboratorsEnvironment from '../../../components/1.Components_Employees&Users_Environment/2.Homepage_Cards/CollaboratorsEnvironment';
 import TimesheetEnvironment from '../../../components/1.Components_Employees&Users_Environment/2.Homepage_Cards/TimesheetEnvironment';
 import WarehouseMissingItemsEnvironment from '../../../components/1.Components_Employees&Users_Environment/2.Homepage_Cards/WHMissingItems';
+import CheckTimesheet from '../../../components/1.Components_Employees&Users_Environment/2.Homepage_Cards/CheckTimesheet';
 
 const HomePage = () => {
 
+
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
+
+  
 
   return (
     <div className='Homepage'>
@@ -18,6 +22,7 @@ const HomePage = () => {
       <div className="cards">
         <CollaboratorsEnvironment />
         <TimesheetEnvironment />
+        <CheckTimesheet />
         <WarehouseMissingItemsEnvironment />
       </div>
     </div>

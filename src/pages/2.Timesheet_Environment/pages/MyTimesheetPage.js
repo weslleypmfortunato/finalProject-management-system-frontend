@@ -105,14 +105,7 @@ const TimesheetByPerson = () => {
         })}
       </table>
       <h5 className='questions-concerns'>If you have any questions or concerns, talk with your immediate superior.</h5>
-      <ul>
-          <li 
-            className='logout-mytimesheet' 
-            style={{listStyleType: "none"}}
-            onClick={() => logOut(logOut.jwt)}>
-            <Link to={'/timesheet/clockin-clockout'} >Back</Link>
-          </li>
-        </ul>
+      <Link to={'/home'} >Back</Link>
     </div>
   )
 

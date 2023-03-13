@@ -2,16 +2,17 @@ import './TimesheetAdminPage.css'
 import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll'
 import axios from 'axios'
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import moment from 'moment-timezone'
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 
 const TimesheetAdminPage = () => {
+
+  const dayBefore = new Date(Date.now() - ( 3600 * 1000 * 24))
+
   const [timesheets, setTimesheets] = useState([])
-  const [startDate, setStartDate] = useState("")
-  const [endDate, setEndDate] = useState("")
-  const [refresh] = useState(true)
+  const [startDate, setStartDate] = useState(dayBefore.toJSON().slice(0,10).replace('/','-'))
+  const [endDate, setEndDate] = useState(new Date().toJSON().slice(0,10).replace('/','-'))
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
   const headers = {
@@ -30,7 +31,9 @@ const TimesheetAdminPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
+
     axios.get(`${process.env.REACT_APP_API_URL}/timesheet?startDate=${startDate}&endDate=${endDate}`, { headers })
+
     .then(response => {
       setTimesheets(response.data)
     }).catch (error => {
@@ -47,16 +50,14 @@ const TimesheetAdminPage = () => {
           <input
             type="date"
             className='initial-date'
-            name="startDate"
-            required
+            name="startDate"            
             value={startDate}
             onChange={e => setStartDate(e.target.value)}
           />
           <input
             type="date"
             className='final-date'
-            name="endDate"
-            required
+            name="endDate"            
             value={endDate}
             onChange={e => setEndDate(e.target.value)}
           />
@@ -91,13 +92,16 @@ const TimesheetAdminPage = () => {
                   <td>{timesheet.department}</td>
                   <td>{timesheet.totalHours}</td>
                   <td>
-                    <Link to={`/timesheet/${timesheet._id}`}>Details</Link>
+                    <Link to={`/timesheet/${timesheet._id}`} target="_blank" rel='noopener noreferrer'>Details</Link> 
                   </td>
                 </tr>
               </tbody>
             )
           })}
         </table>
+        <Link to={'/home'} style={{margin: "20px"}}>
+          <p>Home</p>
+        </Link>
       </div>
     </div>
   )
