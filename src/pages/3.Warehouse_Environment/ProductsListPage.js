@@ -1,5 +1,6 @@
 import './ProductsListPage.css'
 import NavbarAdminAll from "../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll";
+import SearchBarProduct from '../../components/1.Components_Employees&Users_Environment/5.Search_Bars/SearchBarProducts';
 import axios from "axios";
 import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
@@ -19,17 +20,17 @@ const ProductsListPage = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/products`, { headers })
       .then(response => {
         setProducts(response.data)
-        console.log(response.data)
       }).catch(error => console.log(error))
   }, [refresh])
 
   return (
     <div className="ProductsListPage">
       <NavbarAdminAll />
+      <SearchBarProduct />
       <img src="https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396073/rogers_images/eaql23eo6n1hnlmfnggy.png" alt="Roger's Logo" className='logo-create-new-user' />
       <h1 className="current-products-list">Current Products List</h1>
       <div className="createNewProducts-btn">
-        <Link to=''>
+        <Link to='/products/new'>
           <button
             type="button"
             className="btn btn-primary createNewProduct-btn"
@@ -43,7 +44,7 @@ const ProductsListPage = () => {
         return (
           <div key={product._id} className="single-employee-card">
             <div className="single-product">
-              <Link to={`/product/${product._id}`}>
+              <Link to={`/product/edit/${product._id}`}>
                 <p className="product-line">{product.productCode} - {product.productDescription}</p>
               </Link>
             </div>

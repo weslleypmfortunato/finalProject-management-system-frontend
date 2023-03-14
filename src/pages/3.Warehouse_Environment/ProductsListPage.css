@@ -19,3 +19,12 @@
 .link {
   margin: 20px 0;
 }
+
+#no-newProduct-btn {
+  display: none;
+}
+
+#show-product-btn {
+  display: block;
+  margin: auto;
+}

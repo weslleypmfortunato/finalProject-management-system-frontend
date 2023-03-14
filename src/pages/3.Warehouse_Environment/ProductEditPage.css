@@ -1,0 +1,19 @@
+.edit-product {
+  margin-bottom: 20px;
+}
+
+.edit-productCode-productDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.edit-productCode, .edit-productDescription {
+  border: 1px solid lightgray;
+  padding-left: 8px;
+}
+
+.update-product-btn {
+  margin-top: 20px;
+}

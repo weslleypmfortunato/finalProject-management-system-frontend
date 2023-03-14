@@ -16,6 +16,7 @@ const TimesheetDetailsPage = () => {
   const [refresh] = useState(true)
   const [startDate, setStartDate] = useState(dayBefore.toJSON().slice(0,10).replace('/','-'))
   const [endDate, setEndDate] = useState(new Date().toJSON().slice(0,10).replace('/','-'))
+  const [selectedTimesheets, setSelectedTimesheets] = useState([])
 
   const moment = require("moment");
   const momentDurationFormatSetup = require("moment-duration-format");
@@ -184,3 +185,10 @@ const TimesheetDetailsPage = () => {
 }
 
 export default TimesheetDetailsPage
+
+
+// tem que ter uma função que fica responsavel por guardar quem foi selecionado ou não...
+// tem que criar um componente que vai receber todas estas informaç…oes (de uma linha) e ele vai ser renderizado num map. O componente precisa ter um ID
+// fazer um filter para saber qual dos componentes esta sendo marcado/desmarcado
+
+// vai ter um estado no componente pai (selectedTimesheets) e qdo clicar precisa passar por props para o componente filho

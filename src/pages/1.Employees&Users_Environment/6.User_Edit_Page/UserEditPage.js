@@ -22,7 +22,6 @@ const UserEditPage = () => {
   const [loading, setLoading] = useState(true)
 
   const navigate = useNavigate()
-
   const { userId } = useParams()
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))

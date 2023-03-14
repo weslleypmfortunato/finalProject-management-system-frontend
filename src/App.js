@@ -14,6 +14,8 @@ import ClockInClockOutPage from './pages/2.Timesheet_Environment/1.ClockIn_Clock
 import TimesheetByPerson from './pages/2.Timesheet_Environment/2.My_Timesheet_Page/MyTimesheetPage.js'
 import TimesheetDetailsPage from './pages/2.Timesheet_Environment/4.Timesheet_Details_Page/TimesheetDetailsPage';
 import ProductsListPage from './pages/3.Warehouse_Environment/ProductsListPage';
+import CreateNewProductPage from './pages/3.Warehouse_Environment/CreateNewProductPage';
+import ProductEditPage from './pages/3.Warehouse_Environment/ProductEditPage';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path='/my-timesheet' element={ <IsLogged><TimesheetByPerson /></IsLogged> } />
         <Route path='/timesheet/:id' element={ <IsLogged roles={["admin", "supervisor"]}><TimesheetDetailsPage /></IsLogged> } />
         <Route path='/products' element={ <IsLogged><ProductsListPage /></IsLogged> } />
+        <Route path='/products/new' element={ <IsLogged roles={["admin"]}> <CreateNewProductPage /> </IsLogged> } />
+        <Route path='/product/edit/:productId' element={ <IsLogged roles={["admin"]}> <ProductEditPage /> </IsLogged> } />
       </Routes>
     </div>
   );
