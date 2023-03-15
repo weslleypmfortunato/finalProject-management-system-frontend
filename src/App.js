@@ -16,6 +16,7 @@ import TimesheetDetailsPage from './pages/2.Timesheet_Environment/4.Timesheet_De
 import ProductsListPage from './pages/3.Warehouse_Environment/ProductsListPage';
 import CreateNewProductPage from './pages/3.Warehouse_Environment/CreateNewProductPage';
 import ProductEditPage from './pages/3.Warehouse_Environment/ProductEditPage';
+import TimesheetEditPage from './pages/2.Timesheet_Environment/TimesheetEditPage';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path='/timesheet/clockin-clockout' element={ <ClockInClockOutPage /> } />
         <Route path='/my-timesheet' element={ <IsLogged><TimesheetByPerson /></IsLogged> } />
         <Route path='/timesheet/:id' element={ <IsLogged roles={["admin", "supervisor"]}><TimesheetDetailsPage /></IsLogged> } />
+        <Route path='/timesheet/edit/:timesheetEmployeeId' element={ <IsLogged roles={["admin", "user"]} > <TimesheetEditPage /> </IsLogged> } />
         <Route path='/products' element={ <IsLogged><ProductsListPage /></IsLogged> } />
         <Route path='/products/new' element={ <IsLogged roles={["admin"]}> <CreateNewProductPage /> </IsLogged> } />
         <Route path='/product/edit/:productId' element={ <IsLogged roles={["admin"]}> <ProductEditPage /> </IsLogged> } />

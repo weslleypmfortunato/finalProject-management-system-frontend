@@ -1,0 +1,14 @@
+.TimesheetEditPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.editTimesheetH1 {
+  margin-bottom: 20px;
+}
+
+.edit-clockIn, .edit-clockOut {
+  border: 1px solid lightgray;
+  padding-left: 8px;
+}

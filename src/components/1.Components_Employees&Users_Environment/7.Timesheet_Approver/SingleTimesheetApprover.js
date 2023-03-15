@@ -1,5 +1,6 @@
 import moment from 'moment-timezone'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import momentDurationFormatSetup from 'moment-duration-format'
 
 const SingleTimesheetApprover = ({timesheet, selectedTimesheets, setSelectedTimesheets}) => {
@@ -50,13 +51,15 @@ const SingleTimesheetApprover = ({timesheet, selectedTimesheets, setSelectedTime
         </div>
       </td>
       <td>
-        <button
-          type="submit"
-          disabled={timesheet.status === false ? false : true}
-          className={timesheet.status === true ? "btn btn-outline-primary approve-timesheet" : "btn btn-primary approve-timesheet"}
-          id={timesheet.status === false ? "display-edit" : "hide-edit-btn"}
-          style={{width: "75px"}}
-        >Edit </button>
+        <Link to={`/timesheet/edit/${timesheet._id}`} target="_blank" rel='noopener noreferrer'>
+          <button
+            type="submit"
+            disabled={timesheet.status === false ? false : true}
+            className={timesheet.status === true ? "btn btn-outline-primary approve-timesheet" : "btn btn-primary approve-timesheet"}
+            id={timesheet.status === false ? "display-edit" : "hide-edit-btn"}
+            style={{width: "75px"}}
+          >Edit </button>
+        </Link>
       </td>
     </tr>
   )
