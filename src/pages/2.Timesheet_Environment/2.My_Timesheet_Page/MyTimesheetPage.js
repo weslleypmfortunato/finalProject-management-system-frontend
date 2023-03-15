@@ -59,48 +59,26 @@ const TimesheetByPerson = () => {
             <tbody key={timesheet._id}>
               <tr>
                 <th scope="row">{timesheet.employeeId.employeeCode}</th>
-                <td>{timesheet.clockIn.split('T')[0]}</td>
-                <td>{timesheet.clockIn.substr(11, 5)}</td>
-                <td>{timesheet.clockOut.substr(11, 5)}</td>
+                <td>{new Date(timesheet.clockIn).toLocaleString().split(',')[0]}</td>
 
-                {timesheet.clockOut !== null && timesheet.employeeId.fulltime === true &&
-                  <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 - 1800), "seconds").format("h:mm") }</td>
+                <td>{new Date(timesheet.clockIn).toLocaleString().split(',')[1]}</td>
+                {timesheet.clockOut !== null ?  
+                <td>{new Date(timesheet.clockOut).toLocaleString().split(',')[1]}</td> : <td>Waiting clockout</td>
                 }
-                {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
-                <td><b>Waiting for Clock out</b></td> }
-                {timesheet.clockOut !== null && timesheet.employeeId.fulltime === false &&
-                  <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 + 900), "seconds").format("h:mm") }</td>
+
+                {timesheet.clockOut !== null ?
+                  timesheet.employeeId.fulltime === true ? 
+                    <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 - 1800), "seconds").format("h:mm") }</td> :
+                    <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 + 900), "seconds").format("h:mm") }</td>
+                   : <td>Waiting clockout</td>
                 }
-                {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
-                <td><b>Waiting for Clock out</b></td> }
-
-                {/* <td>{ moment.duration(126, "minutes").format("h:mm") }</td> */}
-
-
-                {/* <td>{moment.preciseDiff(timesheet.clockIn, timesheet.clockOut)}</td> O + PROXIMO */}
-                {/* <td>{moment(timesheet.clockOut).diff(moment(timesheet.clockIn), 'hours', true) - 0.5}</td> */}
-                {/* <td>{moment(timesheet.clockOut).from(moment(timesheet.clockIn)) }</td> */}
-                {/* <td>{moment(timesheet.clockOut).from(moment(timesheet.clockIn), true)}</td> */}
-
-
-
-                {/* {timesheet.clockOut !== null && timesheet.employeeId.fulltime === true &&
-                <td>{((moment(timesheet.clockOut).diff(timesheet.clockIn)-1800000)/3600000).toFixed(2)}</td>}
-                {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
-                <td><b>Waiting for Clock out</b></td> }
-                {timesheet.clockOut !==null && timesheet.employeeId.fulltime === false &&  
-                <td>{((moment(timesheet.clockOut).diff(timesheet.clockIn))/3600000).toFixed(2)}</td>}
-                {timesheet.clockOut === null && timesheet.employeeId.fulltime === false &&
-                <td><b>Waiting for Clock out</b></td>
-                }    */}
 
                 {timesheet.status === false ? 
                 <td id={timesheet.status === false && 'under-validation'} >Under validation</td> : 
                 <td id={timesheet.status === true && 'validated'} >Approved</td>
                 }
               </tr>
-            </tbody>
-            
+            </tbody> 
           )
         })}
       </table>
@@ -108,11 +86,6 @@ const TimesheetByPerson = () => {
       <Link to={'/home'} >Back</Link>
     </div>
   )
-
-
-  
-
-
 }
 
 export default TimesheetByPerson

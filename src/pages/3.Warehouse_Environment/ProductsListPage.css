@@ -6,6 +6,10 @@
   margin-bottom: 20px;
 }
 
+.createNewProducts-btn a {
+  text-decoration: none;
+}
+
 .single-product a {
   text-decoration: none;
   color: black;

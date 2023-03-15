@@ -11,7 +11,7 @@ const ClockInClockOutPage = () => {
   const [password, setPassword] = useState('')
   const [refresh, setRefresh] = useState(true)
   const [setLoggedOutUser] = useState({name: '', user:{}})
-  const [ showPassword, setShowPassword ] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   const navigate = useNavigate()
 

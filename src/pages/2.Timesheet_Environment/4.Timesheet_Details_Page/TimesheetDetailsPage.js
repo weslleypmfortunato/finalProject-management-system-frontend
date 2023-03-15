@@ -2,9 +2,9 @@ import '../2.My_Timesheet_Page/MyTimesheetPage.css'
 import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll';
 import axios from "axios";
 import { useEffect, useState } from "react";
-import moment from 'moment-timezone'
 import Swal from 'sweetalert2'
 import { useParams, Link } from 'react-router-dom';
+import SingleTimesheetApprover from '../../../components/1.Components_Employees&Users_Environment/7.Timesheet_Approver/SingleTimesheetApprover';
 require('moment-precise-range-plugin')
 
 const TimesheetDetailsPage = () => {
@@ -12,14 +12,12 @@ const TimesheetDetailsPage = () => {
   const dayBefore = new Date(Date.now() - ( 3600 * 1000 * 24))
 
   const [timesheets, setTimesheets] = useState([])
-  const [status, setStatus] = useState(false)
   const [refresh] = useState(true)
   const [startDate, setStartDate] = useState(dayBefore.toJSON().slice(0,10).replace('/','-'))
   const [endDate, setEndDate] = useState(new Date().toJSON().slice(0,10).replace('/','-'))
   const [selectedTimesheets, setSelectedTimesheets] = useState([])
 
-  const moment = require("moment");
-  const momentDurationFormatSetup = require("moment-duration-format");
+ 
 
   const { id } = useParams()
 
@@ -43,16 +41,13 @@ const TimesheetDetailsPage = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/timesheet/${id}?startDate=${startDate}&endDate=${endDate}`, { headers })
     .then(response => {
       setTimesheets(response.data)
-      const { status } = response.data
-      setStatus(status)
     }).catch(error => console.log(error))
   }, [ refresh ])
 
   const handleSubmit = e => {
     e.preventDefault()
-    const approvedTimesheet = { status}
 
-    axios.put(`${process.env.REACT_APP_API_URL}/user/edit/${id}`, approvedTimesheet)
+    axios.put(`${process.env.REACT_APP_API_URL}/user/edit/${id}`, {})
       .then(response => {
       }).catch(error => {
         messageError('System error')
@@ -63,12 +58,10 @@ const TimesheetDetailsPage = () => {
       const approvedTimesheets = timesheets.filter((timesheet) => {
         return timesheet.status === false
       }).map(approvedTimesheet => {
-        console.log("APPROVEDTIMESHEET",approvedTimesheet)
         return approvedTimesheet._id
       })
-      console.log("APPROVEDTIMESHEETS",approvedTimesheets)
-
-      axios.put(`${process.env.REACT_APP_API_URL}/timesheet/approval`, {ids: approvedTimesheets})
+      
+      axios.put(`${process.env.REACT_APP_API_URL}/timesheet/approval`, {ids: selectedTimesheets}, {headers})
       .then(response => {
         Swal.fire({
           text: "Timesshets approved",
@@ -86,7 +79,7 @@ const TimesheetDetailsPage = () => {
       <div className="image-h1-myTimesheet">
         <h1 className='h1-my-timesheet'>Timesheet Validation Page</h1>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="initial-final-date">
           <input
             type="date"
@@ -112,11 +105,11 @@ const TimesheetDetailsPage = () => {
           >Search
           </button>
           <button
-          type="submit"
-          className="btn btn-warning approve-timesheet"
-          style={{width: "75px"}}
-          onClick={massApproval}
-                >Save </button>
+            type="submit"
+            className="btn btn-warning approve-timesheet"
+            style={{width: "75px"}}
+            onClick={massApproval}
+          >Save </button>
         </div>
       </form>
 
@@ -133,62 +126,18 @@ const TimesheetDetailsPage = () => {
             <th scope="col">Edit</th>
           </tr>
         </thead>
+        <tbody>
         {timesheets.length > 0 &&  timesheets.map(timesheet => {
             return (
-            <tbody key={timesheet._id}>
-              <tr>
-                <th scope="row">{timesheet.employeeId.name}</th>
-                <td>{timesheet.employeeId.employeeCode}</td>
-                <td>{timesheet.clockIn.split('T')[0]}</td>
-                <td>{timesheet.clockIn.substr(11, 5)}</td>
-                <td>{timesheet.clockOut.substr(11, 5)}</td>
-                {timesheet.clockOut !== null && timesheet.employeeId.fulltime === true &&
-                  <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 - 1800), "seconds").format("h:mm") }</td>
-                }
-                {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
-                <td><b>Waiting for Clock out</b></td> }
-                {timesheet.clockOut !== null && timesheet.employeeId.fulltime === false &&
-                  <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 + 900), "seconds").format("h:mm") }</td>
-                }
-                {timesheet.clockOut === null && timesheet.employeeId.fulltime === true && 
-                <td><b>Waiting for Clock out</b></td> }  
-                <td>
-                    <div className="input-checkbox">
-                      <input
-                        type="checkbox"
-                        disabled={timesheet.status === false ? false : true}
-                        defaultChecked={status}
-                        onClick={e => setStatus(!status)}
-                      />
-                      <span id={timesheet.status === false ? "display-approved" : "hide-approve"} className='formerEmployee'>{timesheet.status === false ? "Approve" : "Approved "}</span>
-                    </div>
-                </td>
-                <td>
-                  <button
-                    type="submit"
-                    disabled={timesheet.status === false ? false : true}
-                    className={timesheet.status === true ? "btn btn-outline-primary approve-timesheet" : "btn btn-primary approve-timesheet"}
-                    id={timesheet.status === false ? "display-edit" : "hide-edit-btn"}
-                    style={{width: "75px"}}
-                  >Edit </button>
-                </td>
-              </tr>
-            </tbody>
-          )
-        })}
+              <SingleTimesheetApprover timesheet={timesheet} selectedTimesheets={selectedTimesheets} setSelectedTimesheets={setSelectedTimesheets} key={timesheet._id}/>
+            )
+          })
+        }
+        </tbody>
       </table>
       <Link to={'/timesheet'}>Back</Link>
     </div>
-    
   )
-  
 }
 
 export default TimesheetDetailsPage
-
-
-// tem que ter uma função que fica responsavel por guardar quem foi selecionado ou não...
-// tem que criar um componente que vai receber todas estas informaç…oes (de uma linha) e ele vai ser renderizado num map. O componente precisa ter um ID
-// fazer um filter para saber qual dos componentes esta sendo marcado/desmarcado
-
-// vai ter um estado no componente pai (selectedTimesheets) e qdo clicar precisa passar por props para o componente filho
