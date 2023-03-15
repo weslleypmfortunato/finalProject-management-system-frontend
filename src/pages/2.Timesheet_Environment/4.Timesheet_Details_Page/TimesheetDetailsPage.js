@@ -63,8 +63,9 @@ const TimesheetDetailsPage = () => {
       
       axios.put(`${process.env.REACT_APP_API_URL}/timesheet/approval`, {ids: selectedTimesheets}, {headers})
       .then(response => {
+        window.location.reload()
         Swal.fire({
-          text: "Timesshets approved",
+          text: "Timesheets approved",
           imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396949/rogers_images/lfn5fdhvz3tcezcagj1s.png",
           imageWidth: 100,
           imageHeight: 100,

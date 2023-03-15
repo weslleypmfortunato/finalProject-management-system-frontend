@@ -1,5 +1,5 @@
 import './TimesheetAdminPage.css'
-import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll'
+import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll';
 import axios from 'axios'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';

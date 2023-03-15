@@ -2,6 +2,7 @@ import moment from 'moment-timezone'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import momentDurationFormatSetup from 'moment-duration-format'
+import EditBtn from '../EditBtn'
 
 const SingleTimesheetApprover = ({timesheet, selectedTimesheets, setSelectedTimesheets}) => {
   const [status, setStatus] = useState(false)
@@ -28,14 +29,12 @@ const SingleTimesheetApprover = ({timesheet, selectedTimesheets, setSelectedTime
       <td>Waiting clockout</td>
       }
 
-
       {timesheet.clockOut !== null ?
         timesheet.employeeId.fulltime === true ? 
           <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 - 1800), "seconds").format("h:mm") }</td> :
           <td>{ moment.duration(((moment(timesheet.clockOut).diff(timesheet.clockIn))/1000 + 900), "seconds").format("h:mm") }</td>
           : <td>Waiting clockout</td>
       } 
-
 
       <td>
         <div className="input-checkbox">
@@ -51,15 +50,7 @@ const SingleTimesheetApprover = ({timesheet, selectedTimesheets, setSelectedTime
         </div>
       </td>
       <td>
-        <Link to={`/timesheet/edit/${timesheet._id}`} target="_blank" rel='noopener noreferrer'>
-          <button
-            type="submit"
-            disabled={timesheet.status === false ? false : true}
-            className={timesheet.status === true ? "btn btn-outline-primary approve-timesheet" : "btn btn-primary approve-timesheet"}
-            id={timesheet.status === false ? "display-edit" : "hide-edit-btn"}
-            style={{width: "75px"}}
-          >Edit </button>
-        </Link>
+        <EditBtn timesheet={timesheet} status={status}/>      
       </td>
     </tr>
   )

@@ -51,3 +51,20 @@
   align-items: center;
 }
 
+#display-edit {
+  display: block;
+}
+
+#hide-edit-btn {
+  display: none;
+}
+
+#hide-approved-msg {
+  display: none;
+}
+
+#display-approved-msg {
+  display: block;
+  margin-left: -12px;
+}
+

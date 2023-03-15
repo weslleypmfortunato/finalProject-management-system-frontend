@@ -1,16 +1,18 @@
 import './TimesheetEditPage.css'
 import axios from "axios";
-import { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { React, useState, useEffect } from "react";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import { useParams, Link } from "react-router-dom";
 import NavbarAdminAll from "../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll";
 
-const TimesheetEditPage = () => {
+const TimesheetEditPage = ({timesheet}) => {
+  const [timesheets, setTimesheets] = useState([])
   const [clockIn, setClockIn] = useState('')
   const [clockOut, setClockOut] = useState('')
   const [loading, setLoading] = useState(true)
 
-  const navigate = useNavigate()
-  const { timesheetEmployeeId, id } = useParams()
+  const { timesheetEmployeeId } = useParams()
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
 
@@ -22,8 +24,8 @@ const TimesheetEditPage = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/timesheet/employee/${timesheetEmployeeId}`, { headers })
       .then(response => {
         const { clockIn, clockOut } = response.data
-        setClockIn(clockIn)
-        setClockOut(clockOut)
+        setClockIn(new Date (clockIn))
+        setClockOut(new Date (clockOut))
         setLoading(false)
       }).catch(error => console.log(error))
   }, [timesheetEmployeeId])
@@ -49,7 +51,7 @@ const TimesheetEditPage = () => {
       <h1 className='editTimesheetH1'>Edit timesheet details</h1>
       <form onSubmit={handleSubmit}>
         <div className="input-group mb-3" >
-          <span class="input-group-text" id="basic-addon1" style={{marginRight: "8px", borderRadius: "5px", width: "100px"}}>ClockIn</span>
+          <span className="input-group-text" id="basic-addon1" style={{marginRight: "8px", borderRadius: "5px", width: "100px"}}>ClockIn</span>
           <input
             type="text"
             className="form edit-clockIn"
@@ -64,7 +66,7 @@ const TimesheetEditPage = () => {
         </div>
 
         <div className="input-group mb-3" >
-          <span class="input-group-text" id="basic-addon1" style={{marginRight: "8px", borderRadius: "5px", width: "100px"}}>ClockOut</span>
+          <span className="input-group-text" id="basic-addon1" style={{marginRight: "8px", borderRadius: "5px", width: "100px"}}>ClockOut</span>
           <input
             type="text"
             className="form edit-clockOut"
@@ -83,19 +85,20 @@ const TimesheetEditPage = () => {
           style={{width: "75px"}}
         >Save</button>
       </form>
-      <Link to={`/timesheet/${timesheetEmployeeId}`} style={{margin: "20px"}}>
-        <p>Back</p>
-      </Link>
+
+      {timesheets.length > 0 && timesheets.map(timesheet => {
+        return (
+          <Link to={`/timesheet/${timesheet.id}`} style={{margin: "20px"}}>
+            <p>Back</p>
+          </Link>
+        )
+      })}
+
+
+
+      
     </div>
   )
-
-
-
-
-
-
-
-
 }
 
 export default TimesheetEditPage
