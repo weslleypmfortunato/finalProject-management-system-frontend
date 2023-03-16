@@ -9,11 +9,11 @@ require('moment-precise-range-plugin')
 
 const TimesheetDetailsPage = () => {
 
-  const dayBefore = new Date(Date.now() - ( 3600 * 1000 * 24))
+  const fifteenDaysBefore = new Date(Date.now() - ( 3600 * 1000 * 24 * 15))
 
   const [timesheets, setTimesheets] = useState([])
   const [refresh] = useState(true)
-  const [startDate, setStartDate] = useState(dayBefore.toJSON().slice(0,10).replace('/','-'))
+  const [startDate, setStartDate] = useState(fifteenDaysBefore.toJSON().slice(0,10).replace('/','-'))
   const [endDate, setEndDate] = useState(new Date().toJSON().slice(0,10).replace('/','-'))
   const [selectedTimesheets, setSelectedTimesheets] = useState([])
 
@@ -35,23 +35,22 @@ const TimesheetDetailsPage = () => {
   })
 }
 
-  useEffect(() => {
+  const handleSubmit = e => {
+    e.preventDefault()
+
     axios.get(`${process.env.REACT_APP_API_URL}/timesheet/${id}?startDate=${startDate}&endDate=${endDate}`, { headers })
     .then(response => {
       setTimesheets(response.data)
     }).catch (error => {
       messageError(error.response.data.message)
     })
-  }, [ refresh ])
 
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    axios.put(`${process.env.REACT_APP_API_URL}/user/edit/${id}`, {})
+    axios.put(`${process.env.REACT_APP_API_URL}/timesheet/edit/${id}`, {})
       .then(response => {
+        // nada
       }).catch (error => {
-      messageError(error.response.data.message)
-    })
+        messageError(error.response.data.message)
+      })
     }
 
     const massApproval = () => {
@@ -82,7 +81,7 @@ const TimesheetDetailsPage = () => {
       <div className="image-h1-myTimesheet">
         <h1 className='h1-my-timesheet'>Timesheet Validation Page</h1>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="initial-final-date">
           <input
             type="date"

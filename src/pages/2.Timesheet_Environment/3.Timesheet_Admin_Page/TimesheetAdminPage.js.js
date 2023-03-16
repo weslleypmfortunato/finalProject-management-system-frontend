@@ -8,10 +8,10 @@ import Swal from 'sweetalert2'
 
 const TimesheetAdminPage = () => {
 
-  const dayBefore = new Date(Date.now() - ( 3600 * 1000 * 24))
+  const fifteenDaysBefore = new Date(Date.now() - ( 3600 * 1000 * 24 * 15))
 
   const [timesheets, setTimesheets] = useState([])
-  const [startDate, setStartDate] = useState(dayBefore.toJSON().slice(0,10).replace('/','-'))
+  const [startDate, setStartDate] = useState(fifteenDaysBefore.toJSON().slice(0,10).replace('/','-'))
   const [endDate, setEndDate] = useState(new Date().toJSON().slice(0,10).replace('/','-'))
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
