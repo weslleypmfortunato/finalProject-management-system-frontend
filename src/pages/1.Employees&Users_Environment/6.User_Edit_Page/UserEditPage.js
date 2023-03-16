@@ -30,6 +30,16 @@ const UserEditPage = () => {
     Authorization: `Bearer ${loggedInUser.jwt}`
   }
 
+  const messageError = (text) => {
+      Swal.fire({
+      text,
+      imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396949/rogers_images/lfn5fdhvz3tcezcagj1s.png",
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: 'Custom image',
+    })
+  }
+
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/user/${userId}`, { headers })
       .then(response => {
@@ -49,7 +59,9 @@ const UserEditPage = () => {
         setCurrentStatus(currentStatus)
         setFullTime(fulltime)
         setLoading(false)
-      }).catch(error => console.log(error))
+      }).catch (error => {
+        messageError(error.response.data.message)
+      })
   }, [userId])
 
   const handleSubmit = e => {
@@ -59,7 +71,9 @@ const UserEditPage = () => {
     axios.put(`${process.env.REACT_APP_API_URL}/user/edit/${userId}`, editedUser)
       .then(response => {
         navigate(`/user/${userId}`)
-      }).catch(error => console.log(error))
+      }).catch (error => {
+        messageError(error.response.data.message)
+      })
   }
 
   if (loading) {
@@ -79,7 +93,9 @@ const UserEditPage = () => {
             imageHeight: 200,
             imageAlt: 'Custom image',
           })
-      }).catch(error => console.log(error))
+      }).catch (error => {
+        messageError(error.response.data.message)
+      })
     }
 
   if (loading) {

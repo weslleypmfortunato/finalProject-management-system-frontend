@@ -17,8 +17,6 @@ const TimesheetDetailsPage = () => {
   const [endDate, setEndDate] = useState(new Date().toJSON().slice(0,10).replace('/','-'))
   const [selectedTimesheets, setSelectedTimesheets] = useState([])
 
- 
-
   const { id } = useParams()
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
@@ -41,7 +39,9 @@ const TimesheetDetailsPage = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/timesheet/${id}?startDate=${startDate}&endDate=${endDate}`, { headers })
     .then(response => {
       setTimesheets(response.data)
-    }).catch(error => console.log(error))
+    }).catch (error => {
+      messageError(error.response.data.message)
+    })
   }, [ refresh ])
 
   const handleSubmit = e => {
@@ -49,9 +49,9 @@ const TimesheetDetailsPage = () => {
 
     axios.put(`${process.env.REACT_APP_API_URL}/user/edit/${id}`, {})
       .then(response => {
-      }).catch(error => {
-        messageError('System error')
-      })
+      }).catch (error => {
+      messageError(error.response.data.message)
+    })
     }
 
     const massApproval = () => {
@@ -71,7 +71,9 @@ const TimesheetDetailsPage = () => {
           imageHeight: 100,
           imageAlt: 'Custom image',
         })
-      }).catch(error => console.log(error))
+      }).catch (error => {
+        messageError(error.response.data.message)
+      })
     }
 
   return (

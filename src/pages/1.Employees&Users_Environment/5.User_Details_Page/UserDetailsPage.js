@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll'
+import Swal from 'sweetalert2'
 
 const UserDetailsPage = props => {
   const [user, setUser] = useState(null)
@@ -17,12 +18,24 @@ const UserDetailsPage = props => {
     Authorization: `Bearer ${loggedInUser.jwt}`
   }
 
+  const messageError = (text) => {
+      Swal.fire({
+      text,
+      imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396949/rogers_images/lfn5fdhvz3tcezcagj1s.png",
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: 'Custom image',
+    })
+  }
+
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/user/${userId}`, { headers })
       .then(response => {
         setUser(response.data)
-      }).catch(error => console.log(error))
-  }, [refresh]) // adicionei. Se der pau depois, RETIRAR
+      }).catch (error => {
+        messageError(error.response.data.message)
+      })
+  }, [refresh])
 
   if (!user) {
     return <p>Loading...</p>

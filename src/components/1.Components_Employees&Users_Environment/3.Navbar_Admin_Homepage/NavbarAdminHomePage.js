@@ -11,7 +11,6 @@ const NavbarAdminHomePage = props => {
 
 
   return (
-    // <nav className={`NavbarAdminHomePage`} >
     <nav className='NavbarAdminHomePage' >
       <div className='logout-link'>
         <ul>

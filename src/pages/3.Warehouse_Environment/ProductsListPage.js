@@ -4,7 +4,7 @@ import SearchBarProduct from '../../components/1.Components_Employees&Users_Envi
 import axios from "axios";
 import { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
-// import SearchBarProducts from ...
+import Swal from 'sweetalert2'
 
 const ProductsListPage = () => {
   const [products, setProducts] = useState([])
@@ -16,11 +16,23 @@ const ProductsListPage = () => {
     Authorization: `Bearer ${loggedInUser.jwt}`
   }
 
+  const messageError = (text) => {
+      Swal.fire({
+      text,
+      imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396949/rogers_images/lfn5fdhvz3tcezcagj1s.png",
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: 'Custom image',
+    })
+  }
+
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/products`, { headers })
       .then(response => {
         setProducts(response.data)
-      }).catch(error => console.log(error))
+      }).catch (error => {
+        messageError(error.response.data.message)
+      })
   }, [refresh])
 
   return (

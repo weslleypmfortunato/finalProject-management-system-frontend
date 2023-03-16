@@ -25,6 +25,16 @@ const ClockInClockOutPage = () => {
     navigate('/timesheet/clockin-clockout')
   }
 
+  const messageError = (text) => {
+      Swal.fire({
+      text,
+      imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396949/rogers_images/lfn5fdhvz3tcezcagj1s.png",
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: 'Custom image',
+    })
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
 
@@ -52,7 +62,9 @@ const ClockInClockOutPage = () => {
       }
       setEmployeeCode('')
       setPassword('')
-    }).catch(error => console.log(error))
+    }).catch (error => {
+      messageError(error.response.data.message)
+    })
   }
 
   return (

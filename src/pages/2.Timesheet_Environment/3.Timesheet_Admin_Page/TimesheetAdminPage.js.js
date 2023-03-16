@@ -33,7 +33,6 @@ const TimesheetAdminPage = () => {
     e.preventDefault()
 
     axios.get(`${process.env.REACT_APP_API_URL}/timesheet?startDate=${startDate}&endDate=${endDate}`, { headers })
-
     .then(response => {
       setTimesheets(response.data)
     }).catch (error => {

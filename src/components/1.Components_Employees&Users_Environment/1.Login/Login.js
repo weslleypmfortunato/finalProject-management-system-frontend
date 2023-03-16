@@ -5,6 +5,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { AuthContext } from '../../../contexts/auth.context'
+import Swal from 'sweetalert2'
 
 const Login = () => {
   const [ employeeCode, setEmployeeCode ] = useState('')
@@ -16,6 +17,16 @@ const Login = () => {
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
+  }
+
+  const messageError = (text) => {
+      Swal.fire({
+      text,
+      imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396949/rogers_images/lfn5fdhvz3tcezcagj1s.png",
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: 'Custom image',
+    })
   }
 
   const handleSubmit = e => {
@@ -33,7 +44,9 @@ const Login = () => {
         setEmployeeCode('')
         setPassword('')
         navigate('/home')
-      }).catch(error => console.log(error))
+      }).catch (error => {
+      messageError(error.response.data.message)
+    })
   }
 
   return (

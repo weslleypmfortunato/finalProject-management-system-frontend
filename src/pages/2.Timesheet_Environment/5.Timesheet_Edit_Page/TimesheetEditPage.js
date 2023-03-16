@@ -1,10 +1,9 @@
 import './TimesheetEditPage.css'
 import axios from "axios";
 import { React, useState, useEffect } from "react";
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 import { useParams, Link } from "react-router-dom";
-import NavbarAdminAll from "../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll";
+import NavbarAdminAll from "../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll";
+import Swal from 'sweetalert2'
 
 const TimesheetEditPage = ({timesheet}) => {
   const [timesheets, setTimesheets] = useState([])
@@ -20,6 +19,16 @@ const TimesheetEditPage = ({timesheet}) => {
     Authorization: `Bearer ${loggedInUser.jwt}`
   }
 
+  const messageError = (text) => {
+      Swal.fire({
+      text,
+      imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396949/rogers_images/lfn5fdhvz3tcezcagj1s.png",
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: 'Custom image',
+    })
+  }
+
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/timesheet/employee/${timesheetEmployeeId}`, { headers })
       .then(response => {
@@ -27,7 +36,9 @@ const TimesheetEditPage = ({timesheet}) => {
         setClockIn(new Date (clockIn))
         setClockOut(new Date (clockOut))
         setLoading(false)
-      }).catch(error => console.log(error))
+      }).catch (error => {
+        messageError(error.response.data.message)
+      })
   }, [timesheetEmployeeId])
 
   const handleSubmit = e => {
@@ -37,7 +48,9 @@ const TimesheetEditPage = ({timesheet}) => {
     axios.put(`${process.env.REACT_APP_API_URL}/timesheet/edit/${timesheetEmployeeId}`, editEmployeeTimesheet)
       .then(response => {
         window.close()
-      }).catch(error => console.log(error))
+      }).catch (error => {
+        messageError(error.response.data.message)
+      })
   }
 
   if (loading) {
@@ -84,19 +97,7 @@ const TimesheetEditPage = ({timesheet}) => {
           className="btn btn-primary update-user"
           style={{width: "75px"}}
         >Save</button>
-      </form>
-
-      {timesheets.length > 0 && timesheets.map(timesheet => {
-        return (
-          <Link to={`/timesheet/${timesheet.id}`} style={{margin: "20px"}}>
-            <p>Back</p>
-          </Link>
-        )
-      })}
-
-
-
-      
+      </form>      
     </div>
   )
 }

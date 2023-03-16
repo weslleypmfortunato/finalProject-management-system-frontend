@@ -16,7 +16,7 @@ import TimesheetDetailsPage from './pages/2.Timesheet_Environment/4.Timesheet_De
 import ProductsListPage from './pages/3.Warehouse_Environment/ProductsListPage';
 import CreateNewProductPage from './pages/3.Warehouse_Environment/CreateNewProductPage';
 import ProductEditPage from './pages/3.Warehouse_Environment/ProductEditPage';
-import TimesheetEditPage from './pages/2.Timesheet_Environment/TimesheetEditPage';
+import TimesheetEditPage from './pages/2.Timesheet_Environment/5.Timesheet_Edit_Page/TimesheetEditPage';
 
 function App() {
   return (

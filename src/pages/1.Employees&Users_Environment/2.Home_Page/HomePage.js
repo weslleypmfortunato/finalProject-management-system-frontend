@@ -7,10 +7,7 @@ import CheckTimesheet from '../../../components/1.Components_Employees&Users_Env
 
 const HomePage = () => {
 
-
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
-
-  
 
   return (
     <div className='Homepage'>

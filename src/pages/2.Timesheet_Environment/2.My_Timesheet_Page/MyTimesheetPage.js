@@ -3,6 +3,7 @@ import NavbarAdminHomePage from '../../../components/1.Components_Employees&User
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2'
 require('moment-precise-range-plugin')
 
 const TimesheetByPerson = () => {
@@ -27,12 +28,24 @@ const TimesheetByPerson = () => {
     navigate('/timesheet/clockin-clockout')
   }
 
+  const messageError = (text) => {
+      Swal.fire({
+      text,
+      imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396949/rogers_images/lfn5fdhvz3tcezcagj1s.png",
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: 'Custom image',
+    })
+  }
+
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/my-timesheet`, { headers })
     .then(response => {
       setTimesheets(response.data)
       setUserName(loggedInUser.user.name)
-    }).catch(error => console.log(error))
+    }).catch (error => {
+      messageError(error.response.data.message)
+    })
   }, [ refresh ])
 
   return (

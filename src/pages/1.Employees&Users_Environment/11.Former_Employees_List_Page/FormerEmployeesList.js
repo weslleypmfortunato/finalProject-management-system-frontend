@@ -4,12 +4,11 @@ import axios from 'axios'
 import { useEffect, useState } from "react"
 import { Link } from 'react-router-dom'
 import SearchBarFormerEmployee from '../../../components/1.Components_Employees&Users_Environment/5.Search_Bars/SearchBarFormerEmployee'
-
+import Swal from 'sweetalert2'
 
 const FormerEmployeesListPage = () => {
   const [formerEmployees, setFormerEmployees] = useState([])
   const [refresh] = useState(true)
-
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
 
@@ -17,11 +16,23 @@ const FormerEmployeesListPage = () => {
     Authorization: `Bearer ${loggedInUser.jwt}`
   }
 
+  const messageError = (text) => {
+      Swal.fire({
+      text,
+      imageUrl: "https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396949/rogers_images/lfn5fdhvz3tcezcagj1s.png",
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: 'Custom image',
+    })
+  }
+
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/former-employee`, { headers })
       .then(response => {
         setFormerEmployees(response.data)
-      }).catch(error => console.log(error))
+      }).catch (error => {
+        messageError(error.response.data.message)
+      })
   }, [refresh])
 
   return (
