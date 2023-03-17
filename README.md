@@ -39,6 +39,8 @@ The employee management application provides a comprehensive solution to manage 
   <img width="500" alt="Login and Create New Employee" src="https://user-images.githubusercontent.com/111170704/225978327-cfd93b5d-1ff6-43b6-9e80-fa0dcb80b0e0.mov">
   <h3>Login and Create a new user</h3>
   <img width="500" alt="Former employee" src="https://user-images.githubusercontent.com/111170704/225979963-7ba3b89f-291d-49b5-827d-3ec076c3015f.mov">
+  <h3>User update</h3>
+  <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225981818-6fde9d20-8580-4e22-ac26-7ecf65531c2d.mov">
 </div>
 
 
