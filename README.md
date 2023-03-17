@@ -37,18 +37,7 @@ The employee management application provides a comprehensive solution to manage 
   <p>Watch below the short presentation of the Small Companies Management System.</p>
   <h3>Login and Create a new user</h3>
   <img width="500" alt="Login and Create New Employee" src="https://user-images.githubusercontent.com/111170704/225978327-cfd93b5d-1ff6-43b6-9e80-fa0dcb80b0e0.mov">
-  <h3>Login and Create a new user</h3>
-  <img width="500" alt="Former employee" src="https://user-images.githubusercontent.com/111170704/225979963-7ba3b89f-291d-49b5-827d-3ec076c3015f.mov">
-  <h3>User update</h3>
-  <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225981818-6fde9d20-8580-4e22-ac26-7ecf65531c2d.mov">
-  <h3>Timesheet verification and approval</h3>
-  <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225983286-e4c8d1f3-bd5e-4aaf-8d17-383b05d1b012.mov">
-  <h3>Clock In & Clock Out process</h3>
-  <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225984579-1042ae6f-3067-4e26-b40b-be094066b14d.mov">
-  <h3>Checking timesheet</h3>
-  <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225985700-f393958a-5d60-4c4b-b867-a045696eff12.mov">
-  <h3>Create a new product</h3>
-  <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225986882-1c367b35-551a-410e-bca7-e2a952d8ec9e.mov">
+  <p>You can see the application running by clicking on this link <a href="https://drive.google.com/file/d/1I4oUdm4wjMVhRnqLQRLG7l2g1ttBklq_/view?usp=sharing" target="_blank">Small Business Management System</a>.</p>
 </div>
 
 
