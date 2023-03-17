@@ -41,6 +41,8 @@ The employee management application provides a comprehensive solution to manage 
   <img width="500" alt="Former employee" src="https://user-images.githubusercontent.com/111170704/225979963-7ba3b89f-291d-49b5-827d-3ec076c3015f.mov">
   <h3>User update</h3>
   <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225981818-6fde9d20-8580-4e22-ac26-7ecf65531c2d.mov">
+  <h3>Timesheet verification and approval</h3>
+  <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225983286-e4c8d1f3-bd5e-4aaf-8d17-383b05d1b012.mov">
 </div>
 
 
