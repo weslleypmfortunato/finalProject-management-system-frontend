@@ -37,32 +37,35 @@ The employee management application provides a comprehensive solution to manage 
   <p>Watch below the short presentation of the Small Companies Management System.</p>
   <h3>Login and Create a new user</h3>
   <img width="500" alt="Login and Create New Employee" src="https://user-images.githubusercontent.com/111170704/225978327-cfd93b5d-1ff6-43b6-9e80-fa0dcb80b0e0.mov">
-  <p>You can see the application running by clicking on this link <a href="https://drive.google.com/file/d/1I4oUdm4wjMVhRnqLQRLG7l2g1ttBklq_/view?usp=sharing" target="_blank">Small Business Management System</a>.</p>
 </div>
+<br></br>
+<p>You can see the application running by clicking on this link <a href="https://drive.google.com/file/d/1I4oUdm4wjMVhRnqLQRLG7l2g1ttBklq_/view?usp=sharing" target="_blank">Small Business Management System</a>.</p>
+<br></br>
 
-
-<h2>📝 Available Scripts</h2>
-
-<p>Getting Started With <a href="https://github.com/facebook/create-react-app">Create React App</a></p>
-<p>In the project directory, you can run:</p>
-<h3>npm start</h3>
-<p>You can run the app in the development mode or if preferred, open <a href="http://localhost:3000/">http://localhost:3000 </a>to view it in your browser.</p>
-<p>The page will reload when you make changes.</p>
 
 <h2>💡 Learn More</h2>
 
 <p>You can learn more in the <a href="https://create-react-app.dev/docs/getting-started/" target="_blank">Create React App documentation</a>.</p>
 <p>To learn React, check out the <a href="https://reactjs.org/" >React documentation</a>.</p>
+<p>To learn Bootstrap, check out the <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" >Bootstrap documentation</a>.</p>
+<p>To learn MongoDB, check out the <a href="https://www.mongodb.com/docs/atlas/" >MongoDB documentation</a>.</p>
+<p>To learn ExpressJS, check out the <a href="https://expressjs.com/en/guide/routing.html" >ExpressJS documentation</a>.</p>
+<p>To learn MongooseJS, check out the <a href="https://mongoosejs.com/docs/guide.html" >Mongoose documentation</a>.</p>
+<p>To learn Axios, check out the <a href="https://axios-http.com/docs/intro" >Axios documentation</a>.</p>
 
 <h2>🚀 Execute it</h2>
 
-<p>The project has been deployed on the Netlify network and can be accessed through the link below: </p>
+<p>The project has been deployed on the Netlify and Render network and can be accessed through the link below: </p>
 
-<a href="https://venerable-cuchufli-697791.netlify.app/">
-  <p>Flavours of the World</p>
+<a href="[https://venerable-cuchufli-697791.netlify.app/](https://deft-beijinho-be5544.netlify.app/)">
+  <p>Small Business Management System</p>
 </a>
 
 
-<h2>🧑🏼‍🦰 About Developers 👨🏽</h2>
+<h2> 👨 About Developer</h2>
 
-<p><a href="https://venerable-cuchufli-697791.netlify.app/about" >Click here</a> to see a brief history about the developers. For further information, navigate to social media icons and visit our pages.</p>
+<p>I am a passionate animal lover with a keen interest in Canadian weather. After spending 13 years working for Foxconn manufacturing Apple products, where I gained valuable experience in project management and quality reliability testing in the electronics sector, I decided to take on a new challenge by moving to Canada and starting a new career in web development.
+
+I am currently pursuing my dream of becoming a proficient web developer by attending college and learning everything from scratch. Being in Victoria, BC, allows me to explore my love for nature by hiking and discovering new places in my spare time.
+
+I am a firm believer in continuous improvement and pay close attention to every detail, no matter how small, to ensure the final product is of the highest quality. I am excited to see where my newfound skills and experiences will take me, and I am eager to make the most of every opportunity that comes my way..</p>
