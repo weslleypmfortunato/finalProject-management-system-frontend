@@ -35,7 +35,6 @@ The employee management application provides a comprehensive solution to manage 
 
 <div align='center'>
   <p>Watch below the short presentation of the Small Companies Management System.</p>
-  <h3>Login and Create a new user</h3>
   <img width="500" alt="Login and Create New Employee" src="https://user-images.githubusercontent.com/111170704/225978327-cfd93b5d-1ff6-43b6-9e80-fa0dcb80b0e0.mov">
 </div>
 <br></br>
@@ -56,6 +55,7 @@ The employee management application provides a comprehensive solution to manage 
 <h2>🚀 Execute it</h2>
 
 <p>The project has been deployed on the Netlify and Render network and can be accessed through the link below: </p>
+<p>⚠️ For a better experience, run the application using Google Chrome ⚠️</p>
 
 <a href="https://deft-beijinho-be5544.netlify.app/" target="_blank">
   Small Business Management System
