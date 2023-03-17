@@ -47,6 +47,8 @@ The employee management application provides a comprehensive solution to manage 
   <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225984579-1042ae6f-3067-4e26-b40b-be094066b14d.mov">
   <h3>Checking timesheet</h3>
   <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225985700-f393958a-5d60-4c4b-b867-a045696eff12.mov">
+  <h3>Create a new product</h3>
+  <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225986882-1c367b35-551a-410e-bca7-e2a952d8ec9e.mov">
 </div>
 
 
