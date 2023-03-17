@@ -46,25 +46,22 @@ The employee management application provides a comprehensive solution to manage 
 <h2>💡 Learn More</h2>
 
 <p>You can learn more in the <a href="https://create-react-app.dev/docs/getting-started/" target="_blank">Create React App documentation</a>.</p>
-<p>To learn React, check out the <a href="https://reactjs.org/" >React documentation</a>.</p>
-<p>To learn Bootstrap, check out the <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" >Bootstrap documentation</a>.</p>
-<p>To learn MongoDB, check out the <a href="https://www.mongodb.com/docs/atlas/" >MongoDB documentation</a>.</p>
-<p>To learn ExpressJS, check out the <a href="https://expressjs.com/en/guide/routing.html" >ExpressJS documentation</a>.</p>
-<p>To learn MongooseJS, check out the <a href="https://mongoosejs.com/docs/guide.html" >Mongoose documentation</a>.</p>
-<p>To learn Axios, check out the <a href="https://axios-http.com/docs/intro" >Axios documentation</a>.</p>
+<p>To learn React, check out the <a href="https://reactjs.org/" target="_blank" >React documentation</a>.</p>
+<p>To learn Bootstrap, check out the <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank" >Bootstrap documentation</a>.</p>
+<p>To learn MongoDB, check out the <a href="https://www.mongodb.com/docs/atlas/" target="_blank">MongoDB documentation</a>.</p>
+<p>To learn ExpressJS, check out the <a href="https://expressjs.com/en/guide/routing.html" target="_blank">ExpressJS documentation</a>.</p>
+<p>To learn MongooseJS, check out the <a href="https://mongoosejs.com/docs/guide.html" target="_blank">Mongoose documentation</a>.</p>
+<p>To learn Axios, check out the <a href="https://axios-http.com/docs/intro" target="_blank">Axios documentation</a>.</p>
 
 <h2>🚀 Execute it</h2>
 
 <p>The project has been deployed on the Netlify and Render network and can be accessed through the link below: </p>
 
-<a href="https://deft-beijinho-be5544.netlify.app/">
+<a href="https://deft-beijinho-be5544.netlify.app/" target="_blank">
   Small Business Management System
 </a>
 
-
-
-
-<h2> 👨 About Developer</h2>
+<h2> 👨 About the developer</h2>
 
 <p>I am a passionate animal lover with a keen interest in Canadian weather. After spending 13 years working for Foxconn manufacturing Apple products, where I gained valuable experience in project management and quality reliability testing in the electronics sector, I decided to take on a new challenge by moving to Canada and starting a new career in web development.
 
