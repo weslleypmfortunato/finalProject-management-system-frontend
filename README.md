@@ -35,7 +35,7 @@ The employee management application provides a comprehensive solution to manage 
 
 <div align='center'>
   <p>Watch below the short presentation of the Small Companies Management System.</p>
-  <img width="500" alt="homePage" src="https://user-images.githubusercontent.com/111170704/213953680-991d64e7-c85b-40a8-91d9-84ed84542635.png">
+  <img width="500" alt="Login and Create New Employee" src="https://user-images.githubusercontent.com/111170704/225978327-cfd93b5d-1ff6-43b6-9e80-fa0dcb80b0e0.mov">
 </div>
 
 
