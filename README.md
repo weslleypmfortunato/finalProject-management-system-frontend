@@ -58,7 +58,7 @@ The employee management application provides a comprehensive solution to manage 
 <p>The project has been deployed on the Netlify and Render network and can be accessed through the link below: </p>
 
 <a href="[https://venerable-cuchufli-697791.netlify.app/](https://deft-beijinho-be5544.netlify.app/)">
-  <p>Small Business Management System</p>
+  Small Business Management System
 </a>
 
 
