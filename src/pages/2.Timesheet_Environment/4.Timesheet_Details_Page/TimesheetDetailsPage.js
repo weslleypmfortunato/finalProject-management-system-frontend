@@ -35,15 +35,19 @@ const TimesheetDetailsPage = () => {
   })
 }
 
-  const handleSubmit = e => {
-    e.preventDefault()
-
+  useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/timesheet/${id}?startDate=${startDate}&endDate=${endDate}`, { headers })
     .then(response => {
       setTimesheets(response.data)
     }).catch (error => {
       messageError(error.response.data.message)
     })
+  }, [startDate, endDate])
+
+    const handleSubmit = e => {
+    e.preventDefault()
+  
+
 
     axios.put(`${process.env.REACT_APP_API_URL}/timesheet/edit/${id}`, {})
       .then(response => {
@@ -101,15 +105,8 @@ const TimesheetDetailsPage = () => {
         <div className="btns-search-save">
           <button
             type="submit"
-            className="btn btn-primary search-timesheet"
-            style={{width: "75px"}}
-            onClick={handleSubmit}
-          >Search
-          </button>
-          <button
-            type="submit"
             className="btn btn-warning approve-timesheet"
-            style={{width: "75px"}}
+            style={{width: "75px", marginTop: "20px"}}
             onClick={massApproval}
           >Save </button>
         </div>

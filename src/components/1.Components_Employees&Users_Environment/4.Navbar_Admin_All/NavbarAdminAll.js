@@ -32,7 +32,7 @@ const NavbarAdminAll = props => {
           <li 
             className='admin-all-link' 
             style={{listStyleType: "none"}}>
-            Warehouse
+            <Link to='/missing-products'>Warehouse</Link>
           </li>
           <li 
             className='admin-all-link admin-all-logout' 

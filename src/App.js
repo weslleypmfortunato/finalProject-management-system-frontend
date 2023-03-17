@@ -17,6 +17,7 @@ import ProductsListPage from './pages/3.Warehouse_Environment/ProductsListPage';
 import CreateNewProductPage from './pages/3.Warehouse_Environment/CreateNewProductPage';
 import ProductEditPage from './pages/3.Warehouse_Environment/ProductEditPage';
 import TimesheetEditPage from './pages/2.Timesheet_Environment/5.Timesheet_Edit_Page/TimesheetEditPage';
+import MissingProductPage from './pages/3.Warehouse_Environment/MissingProductsPage';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path='/products' element={ <IsLogged><ProductsListPage /></IsLogged> } />
         <Route path='/products/new' element={ <IsLogged roles={["admin"]}> <CreateNewProductPage /> </IsLogged> } />
         <Route path='/product/edit/:productId' element={ <IsLogged roles={["admin"]}> <ProductEditPage /> </IsLogged> } />
+        <Route path='/missing-products' element={ <IsLogged> <MissingProductPage /> </IsLogged> } />
       </Routes>
     </div>
   );

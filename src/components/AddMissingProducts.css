@@ -1,0 +1,7 @@
+.productCode-input, .productQuantity-input {
+  border-radius: 5px;
+  border: 1px solid gray;
+  width: 180px;
+  height: 35px;
+  padding-left: 8px;
+}

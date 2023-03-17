@@ -1,0 +1,58 @@
+.MissingProducsPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.missing-items-list {
+  margin: 20px;
+}
+
+.form-missing-product {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.filteredDate {
+  border-radius: 5px;
+  border: 1px solid gray;
+  width: 180px;
+  height: 35px;
+  padding-left: 8px;
+}
+
+.productDescription {
+  text-align: left;
+}
+
+.quantity {
+  width: 100px;
+}
+
+.description {
+  width: 200px;
+}
+
+.product {
+  width: 150px;
+}
+
+.add-newProductPage a {
+  text-decoration: none;
+  color: black;
+}
+
+.add-newProductPage a:hover {
+  color: white;
+  font-weight: 600;
+}
+
+.add-newProductPage {
+  position: absolute; top:64px; right: 8px
+}
+
+#hideAddProductBtn {
+  display: none;
+}

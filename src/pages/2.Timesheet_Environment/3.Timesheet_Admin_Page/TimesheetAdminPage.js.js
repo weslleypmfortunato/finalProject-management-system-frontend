@@ -1,7 +1,7 @@
 import './TimesheetAdminPage.css'
 import NavbarAdminAll from '../../../components/1.Components_Employees&Users_Environment/4.Navbar_Admin_All/NavbarAdminAll';
 import axios from 'axios'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
@@ -11,10 +11,11 @@ const TimesheetAdminPage = () => {
   const fifteenDaysBefore = new Date(Date.now() - ( 3600 * 1000 * 24 * 15))
 
   const [timesheets, setTimesheets] = useState([])
-  const [startDate, setStartDate] = useState(fifteenDaysBefore.toJSON().slice(0,10).replace('/','-'))
-  const [endDate, setEndDate] = useState(new Date().toJSON().slice(0,10).replace('/','-'))
+  const [startDate, setStartDate] = useState(fifteenDaysBefore.toJSON().slice(0, 10).replace('/','-'))
+  const [endDate, setEndDate] = useState(new Date().toJSON().slice(0, 10).replace('/','-'))
 
   const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'))
+  
   const headers = {
     Authorization: `Bearer ${loggedInUser.jwt}`
   }
@@ -31,21 +32,24 @@ const TimesheetAdminPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
+  }
 
-    axios.get(`${process.env.REACT_APP_API_URL}/timesheet?startDate=${startDate}&endDate=${endDate}`, { headers })
+    useEffect(() => {
+      axios.get(`${process.env.REACT_APP_API_URL}/timesheet?startDate=${startDate}&endDate=${endDate}`, { headers })
     .then(response => {
       setTimesheets(response.data)
     }).catch (error => {
       messageError(error.response.data.message)
     })
-  }
+    }, [ startDate, endDate ])
 
   return (
     <div className="TimesheetAdminPage">
       <NavbarAdminAll />
+      <img src="https://res.cloudinary.com/weslley-m-fortunato/image/upload/v1677396073/rogers_images/eaql23eo6n1hnlmfnggy.png" alt="Roger's Logo" className='logo-create-new-user' />
       <h1 className='header-timesheet'>Timesheet Control</h1>
-      <form>
-        <div className="initial-final-date">
+      <form onSubmit={handleSubmit}>
+        <div className="initial-final-date" style={{marginBottom: "20px"}}>
           <input
             type="date"
             className='initial-date'
@@ -61,12 +65,6 @@ const TimesheetAdminPage = () => {
             onChange={e => setEndDate(e.target.value)}
           />
         </div>
-        <button 
-          type="submit" 
-          className="btn btn-primary search-timesheet"
-          onClick={handleSubmit}
-        >Search
-        </button>
       </form>
       <div className="timesheets">
       
