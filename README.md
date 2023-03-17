@@ -43,6 +43,8 @@ The employee management application provides a comprehensive solution to manage 
   <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225981818-6fde9d20-8580-4e22-ac26-7ecf65531c2d.mov">
   <h3>Timesheet verification and approval</h3>
   <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225983286-e4c8d1f3-bd5e-4aaf-8d17-383b05d1b012.mov">
+  <h3>Clock In & Clock Out process</h3>
+  <img width="500" alt="User update" src="https://user-images.githubusercontent.com/111170704/225984579-1042ae6f-3067-4e26-b40b-be094066b14d.mov">
 </div>
 
 
