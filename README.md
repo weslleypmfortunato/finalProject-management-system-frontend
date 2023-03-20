@@ -2,7 +2,7 @@
 
 <h2>💻 Overview</h2>
 
-<p>Introducing my first full-stack application, the latest employee management application, designed for ease and efficiency. As a recent Bootcamp graduate in web development, I'm proud to present a user-friendly platform to manage most aspects of employee management, timesheet control, and missing items tracking.
+<p>Introducing my first full-stack application, designed for ease and efficiency. As a recent Bootcamp graduate in web development, I'm proud to present a user-friendly platform to manage most aspects of employee management, timesheet control, and missing items tracking.
 
 This application streamlines employee management by providing easy-to-use features that help you stay on top of your team's absenteeism, payroll, and other important details. You can easily access and manage employee data, such as personal information, job position, and weekly attendance.
 
